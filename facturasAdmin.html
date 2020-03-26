@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<meta charset="utf-8">
+		<TITLE>Admin Facturas</TITLE>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloBase.css">
+		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
+		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloMenu.css">
+
+		<script type="text/javascript" src="js/validaPaginaAdminFacturas.js"></script>
+	</HEAD>
+
+	<BODY>
+		<HEADER>
+			<DIV CLASS="container">
+				<CENTER><H1>Sistema de facturas Online</H1></CENTER>
+			</DIV>
+		</HEADER>
+		<BR>
+		<CENTER>
+
+			<DIV CLASS="navbar navbar-expand-sm justify-content-center">
+				<UL ID="menu" CLASS="navbar-nav">
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Clientes</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Productos</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Realizar Facturas</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Cerrar sesi&oacute;n</A></LI>
+				</UL>
+			</DIV>
+			
+		</CENTER>
+		<HR>
+
+		<DIV CLASS="container">
+			<CENTER><H3>Generar Factura</H3>
+			<FORM ACTION="altaFactura.php" METHOD="" ENCTYPE="" ONSUBMIT="return validaFormulario();">
+				<DIV CLASS="form-group">
+					<LABEL FOR="rfc">RFC: </LABEL>
+					<DIV CLASS="col-lg-4">
+						<INPUT CLASS="form-control" TYPE="text" ID="rfc" SIZE="40" MAXLENGTH="42" REQUIRED>
+					</DIV>
+				</DIV>
+				<DIV CLASS="table-responsive">
+				<TABLE CLASS="table table-striped table-bordered table-hover">
+					
+					<TR>
+						<TH ALIGN="LEFT">Id</TH>
+						<TH>Nombre</TH>
+						<TH>Precio</TH>
+						<TH>Stock</TH>
+						<TH>Categor&iacute;a</TH>
+						<TH>Agregar</TH>
+					</TR>
+					<TR>
+						<TD>1</TD>
+						<TD>Chocolate</TD>
+						<TD>10.00</TD>
+						<TD>10</TD>
+						<TD>Dulceria</TD>
+						<TD><BUTTON>Agregar</BUTTON></TD>
+					</TR>
+					<TR>
+						<TD>2</TD>
+						<TD>Lata de frijoles</TD>
+						<TD>20.00</TD>
+						<TD>10</TD>
+						<TD>Abarrotes</TD>
+						<TD><BUTTON>Agregar</BUTTON></TD>
+					</TR>
+					<TR>
+						<TD>3</TD>
+						<TD>Paracetamol</TD>
+						<TD>11.00</TD>
+						<TD>20</TD>
+						<TD>Farmacia</TD>
+						<TD><BUTTON>Agregar</BUTTON></TD>
+					</TR>
+				</TABLE>
+				</DIV>
+			
+
+				<CENTER><H3>Visualización productos en la factura</H3></CENTER>
+				<CENTER>
+				<DIV CLASS="table-responsive">
+					<TABLE CLASS="table table-striped table-bordered table-hover">
+							<TR>
+								<TH ALIGN="LEFT">Id</TH>
+								<TH>Nombre</TH>
+								<TH>Precio</TH>
+								<TH>Cantidad</TH>
+								<TH>Eliminar</TH>	
+							</TR>
+							<TR>
+								<TD>3</TD>
+								<TD>Paracetamol</TD>
+								<TD>11.00</TD>
+								<TD>5</TD>
+								<TD><BUTTON>Eliminar</BUTTON></TD>
+							</TR>
+						</TABLE>
+					</DIV>
+			
+				</CENTER>
+				<DIV CLASS="col-lg-4">
+					<INPUT CLASS="form-control" TYPE="submit" VALUE="Registrar">	
+				</DIV>
+			</FORM><CENTER>
+		</DIV>
+		<FOOTER>
+			<DIV CLASS="container">
+				<P CLASS="h6">P&aacute;gina ofrecida para el control de facturas de la Miscelanea </P>
+			</DIV>
+		</FOOTER>
+		<script type="bootstrap/js/jquery.js"></script>
+		<script type="bootstrap/js/bootstrap.min.js"></script>
+	</BODY>
+</HTML>

@@ -1,0 +1,39 @@
+FORM{
+	width:90%;
+	border:1px solid #ccc;
+	margin:20px;
+}
+
+LABEL{
+	font-size:18px;
+	display:block;
+	width:100px;
+}
+
+INPUT,SELECT{
+	font-size:40px;
+	margin-bottom:20px;
+	width:100%;
+	padding:10px;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	border:1px solid #ccc;
+}
+
+
+INPUT:focus{
+	border:1px solid #1668C4;
+}
+
+INPUT[type="submit"]{
+	margin-bottom:0px;
+	background:#1668C4;
+	color:#fff;
+	border:none;
+}
+
+INPUT[type="submit"]:hover{
+	background:#4A88F4;
+	cursor:pointer;
+}

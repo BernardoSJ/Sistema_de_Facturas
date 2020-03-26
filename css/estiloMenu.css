@@ -1,0 +1,28 @@
+#menu{
+	list-style-type: none;
+   text-align: center;
+}
+
+#menu LI{
+   display: inline;
+   text-align: center;
+   margin: 0 10px 0 0;
+   
+}
+
+#menu LI A{
+   padding: 2px 7px 2px 7px;
+   color: #666;
+   background-color: #ccc;
+   border: 1px solid #ccc;
+   text-decoration: none;
+}
+
+#menu LI A:hover{
+ 	background-color: #2586d7;
+ 	margin-top: -2;
+ 	padding-bottom: 12px;
+ 	color:white;
+}
+
+
