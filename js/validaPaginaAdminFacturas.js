@@ -5,6 +5,9 @@ function validaFormulario(){
 	if(rfc==""){
 		alert("Debes llenar el campo de Rfc");
 		return false;
+	}else if(rfc.length>14){
+		alert("El rfc que ingresaste es muy largo");
+		return false;
 	}else if(!expresionRfc.test(rfc)){
 		alert("El RFC que escribiste no es valido");
 		return false;
