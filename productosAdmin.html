@@ -46,9 +46,9 @@
 		<CENTER>
 			<DIV CLASS="navbar navbar-expand-sm justify-content-center">
 				<UL ID="menu" CLASS="navbar-nav">
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Clientes</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Productos</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Realizar Facturas</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="clientesAdmin.html">Clientes</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="productosAdmin.html">Productos</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="facturasAdmin.html">Realizar Facturas</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Cerrar sesi&oacute;n</A></LI>
 				</UL>
 			</DIV>
@@ -58,7 +58,7 @@
 		<DIV CLASS="container">
 			<CENTER><H2>Productos</H2></CENTER>
 			<CENTER><H3>Dar de alta producto</H3></CENTER>
-			<CENTER><FORM ACTION="altaProducto.php" METHOD="" ENCTYPE="" ONSUBMIT="return validaFormularioInsertar();">
+			<CENTER><FORM ACTION="php/altaProducto.php" METHOD="POST" ENCTYPE="" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="nombre">Nombre: </LABEL>
 					<DIV CLASS="col-lg-4">
@@ -90,6 +90,7 @@
 						</SELECT>
 					</DIV>
 				</DIV>
+				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
 				<DIV CLASS="col-lg-4">
 					<INPUT CLASS="form-control" TYPE="submit" VALUE="Registrar">
 				</DIV>
@@ -177,6 +178,7 @@
 			</FOOTER>
 			<script type="bootstrap/js/jquery.js"></script>
 			<script type="bootstrap/js/bootstrap.min.js"></script>
+			<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</BODY>
 </HTML>
 

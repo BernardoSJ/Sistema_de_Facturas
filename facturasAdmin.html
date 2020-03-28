@@ -23,9 +23,9 @@
 
 			<DIV CLASS="navbar navbar-expand-sm justify-content-center">
 				<UL ID="menu" CLASS="navbar-nav">
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Clientes</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Productos</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Realizar Facturas</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="clientesAdmin.html">Clientes</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="productosAdmin.html">Productos</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="facturasAdmin.html">Realizar Facturas</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Cerrar sesi&oacute;n</A></LI>
 				</UL>
 			</DIV>
@@ -35,14 +35,20 @@
 
 		<DIV CLASS="container">
 			<CENTER><H3>Generar Factura</H3>
-			<FORM ACTION="altaFactura.php" METHOD="" ENCTYPE="" ONSUBMIT="return validaFormulario();">
+			<FORM ACTION="php/altaFactura.php" METHOD="POST" ENCTYPE="" ONSUBMIT="return validaFormulario();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="rfc">RFC: </LABEL>
 					<DIV CLASS="col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="rfc" SIZE="40" MAXLENGTH="42" REQUIRED>
 					</DIV>
 				</DIV>
-				<DIV CLASS="table-responsive">
+				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
+				<DIV CLASS="col-lg-4">
+					<INPUT CLASS="form-control" TYPE="submit" VALUE="Registrar">	
+				</DIV>
+			</FORM><CENTER>
+
+			<DIV CLASS="table-responsive">
 				<TABLE CLASS="table table-striped table-bordered table-hover">
 					
 					<TR>
@@ -103,10 +109,6 @@
 					</DIV>
 			
 				</CENTER>
-				<DIV CLASS="col-lg-4">
-					<INPUT CLASS="form-control" TYPE="submit" VALUE="Registrar">	
-				</DIV>
-			</FORM><CENTER>
 		</DIV>
 		<FOOTER>
 			<DIV CLASS="container">
@@ -115,5 +117,6 @@
 		</FOOTER>
 		<script type="bootstrap/js/jquery.js"></script>
 		<script type="bootstrap/js/bootstrap.min.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</BODY>
 </HTML>
