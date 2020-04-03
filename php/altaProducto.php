@@ -1,12 +1,28 @@
 <?php
 
-	require_once '../app/init.php';
+	if(!empty($_POST)){
+		$nombre = $_POST['nombre'];
+		$precio = $_POST['precio'];
+		$stock = $_POST['stock'];
+		$categoria = $_POST['categoria'];
 
-	$response = $recaptcha->verify($_POST['g-recaptcha-response']);
+		$captcha = $_POST['g-recaptcha-response'];
 
-	if($response->isSuccess()){
-		echo "El captcha es valido. Iniciando proceso de registro de Producto...";
-	}else{
-		echo "No realizaste el captcha. Por favor vuelve a intentarlo";
+		$secret = '6LdgquQUAAAAABIKEhp3yeibNprsAy7HTm5pYIiN';
+
+		if(!$captcha){
+			echo "Por favor revisa el captcha";
+		}
+
+		$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
+
+		//var_dump($response);
+
+		$arr = json_decode($response,TRUE);
+		if($arr['success']){
+			echo "El captcha es valido... iniciando proceso de registro de producto";
+		}else{
+			echo "El captcha no es valido";
+		}
 	}
 ?>

@@ -1,12 +1,24 @@
 <?php
+	if(!empty($_POST)){
+		$rfc = $_POST['rfc'];
 
-	require_once '../app/init.php';
+		$captcha = $_POST['g-recaptcha-response'];
 
-	$response = $recaptcha->verify($_POST['g-recaptcha-response']);
+		$secret = '6LdgquQUAAAAABIKEhp3yeibNprsAy7HTm5pYIiN';
 
-	if($response->isSuccess()){
-		echo "El captcha es valido. Iniciando proceso de registro de Factura..";
-	}else{
-		echo "No realizaste el captcha. Por favor vuelve a intentarlo";
+		if(!$captcha){
+			echo "Por favor revisa el captcha";
+		}
+
+		$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
+
+		//var_dump($response);
+
+		$arr = json_decode($response,TRUE);
+		if($arr['success']){
+			echo "El captcha es valido... iniciando proceso de registro de factura";
+		}else{
+			echo "El captcha no es valido";
+		}
 	}
 ?>
