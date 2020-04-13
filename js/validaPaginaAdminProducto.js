@@ -27,6 +27,5 @@ function validaFormularioBuscarProducto(){
 		alert("El campo de Buscar no debe estar vacio");
 		return false;
 	}
-	alert("La busqueda es "+busqueda+" el criterio es "+criterio);
 	return true;
 }

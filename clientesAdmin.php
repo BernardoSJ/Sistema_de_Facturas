@@ -1,3 +1,18 @@
+<?php
+	require 'php/conexion.php';
+
+	$condicion = "";
+
+	if(!empty($_POST)){
+		$busca = $_POST['busca'];
+		$criterio = strtolower($_POST['criterio']);
+
+		$condicion = "WHERE $criterio LIKE '%$busca%'";
+	}
+
+	$sql = "SELECT * FROM pruebaclientes $condicion";
+	$resultado = $mysqli->query($sql);
+?>
 <!DOCTYPE html>
 <HTML>
 	<HEAD>
@@ -23,7 +38,7 @@
 		<CENTER>
 			<DIV CLASS="navbar navbar-expand-sm justify-content-center">
 				<UL ID="menu" CLASS="navbar-nav">
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="clientesAdmin.html">Clientes</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="clientesAdmin.php">Clientes</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="productosAdmin.html">Productos</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="facturasAdmin.html">Realizar Facturas</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Cerrar sesi&oacute;n</A></LI>
@@ -100,7 +115,7 @@
 
 		<HR>
 			<DIV CLASS="container">
-					<CENTER><FORM ACTION="buscaCliente.php" METHOD="" ENCTYPE="" ONSUBMIT="return validaFormularioBuscarCliente();">
+					<CENTER><FORM ACTION="clientesAdmin.php" METHOD="POST" ONSUBMIT="return validaFormularioBuscarCliente();">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
 						<DIV CLASS="col-lg-4">
@@ -146,18 +161,21 @@
 						<TH></TH>
 						<TH></TH>
 					</TR>
+					
+					<?php while($row = $resultado->fetch_array()) { ?>
 					<TR>
-						<TD>SAJB981003HD3838</TD>
-						<TD>Bernardo</TD>
-						<TD>Salinas</TD>
-						<TD>Jaquez</TD>
-						<TD>Chapultepec</TD>
-						<TD>310</TD>
-						<TD>Benito Juarez</TD>
-						<TD>34120</TD>
-						<TD><BUTTON>Modificar</BUTTON></TD>
-						<TD><BUTTON>Eliminar</BUTTON></TD>
+						<TD><?php echo $row['rfc']; ?></TD>
+						<TD><?php echo $row['nombre']; ?></TD>
+						<TD><?php echo $row['apellidop']; ?></TD>
+						<TD><?php echo $row['apellidom']; ?></TD>
+						<TD><?php echo $row['calle']; ?></TD>
+						<TD><?php echo $row['numero']; ?></TD>
+						<TD><?php echo $row['colonia']; ?></TD>
+						<TD><?php echo $row['cp']; ?></TD>
+						<TD></TD>
+						<TD></TD>
 					</TR>
+					<?php } ?>
 				</TABLE>
 				</DIV>
 			</CENTER>

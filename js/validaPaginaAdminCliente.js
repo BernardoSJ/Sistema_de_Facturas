@@ -52,7 +52,7 @@ function validaFormularioInsertar(){
 	return true;
 }
 
-function validaFormularioBuscarCliente(){
+/*function validaFormularioBuscarCliente(){
 	var busqueda,criterio;
 	busqueda=document.getElementById("busca").value;
 	criterio=document.getElementById("criterio").value;
@@ -60,6 +60,6 @@ function validaFormularioBuscarCliente(){
 		alert("El campo de Buscar no debe estar vacio");
 		return false;
 	}
-	alert("La busqueda es "+busqueda+" el criterio es "+criterio);
+	
 	return true;
-}
+}*/
