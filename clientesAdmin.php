@@ -172,8 +172,8 @@
 						<TD><?php echo $row['numero']; ?></TD>
 						<TD><?php echo $row['colonia']; ?></TD>
 						<TD><?php echo $row['cp']; ?></TD>
-						<TD></TD>
-						<TD></TD>
+						<TD><BUTTON>Modificar</BUTTON></TD>
+						<TD><BUTTON>Eliminar</BUTTON></TD>
 					</TR>
 					<?php } ?>
 				</TABLE>

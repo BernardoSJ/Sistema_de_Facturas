@@ -1,4 +1,5 @@
 <?php
+	
 	if(!empty($_POST)){
 		$rfc = $_POST['rfc'];
 
@@ -20,5 +21,9 @@
 		}else{
 			echo "El captcha no es valido";
 		}
+		$data = json_decode($_POST['caja_valor'], true);
+		
+
+		print_r($data);
 	}
 ?>
