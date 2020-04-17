@@ -100,14 +100,16 @@
     		function eliminar(id){
     			var pos=0;
     			for(i in arregloProductos){
-    				alert(i);
         			if(arregloProductos[i]==id){
-        				alert("encontrado");
         				pos=i;
         				break;
         			}
     			}
-    			arregloProductos.splice(pos,pos+4);
+    			
+    			arregloProductos.splice(pos,1);
+    			arregloProductos.splice(pos,1);
+    			arregloProductos.splice(pos,1);
+    			arregloProductos.splice(pos,1);
     			fila="fila"+id;
     			$("#"+fila).remove();
     		}
