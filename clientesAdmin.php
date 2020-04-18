@@ -1,8 +1,8 @@
 <?php
-	require 'php/conexion.php';
-
+	$user=$_GET['user'];
+	$pass=$_GET['pass'];
 	$condicion = "";
-
+	$mysqli=new mysqli("localhost",$user,$pass,"pruebafacturas");
 	if(!empty($_POST)){
 		$busca = $_POST['busca'];
 		$criterio = strtolower($_POST['criterio']);
@@ -11,6 +11,7 @@
 	}
 
 	$sql = "SELECT * FROM pruebaclientes $condicion";
+
 	$resultado = $mysqli->query($sql);
 ?>
 <!DOCTYPE html>
@@ -115,7 +116,7 @@
 
 		<HR>
 			<DIV CLASS="container">
-					<CENTER><FORM ACTION="clientesAdmin.php" METHOD="POST" ONSUBMIT="return validaFormularioBuscarCliente();">
+					<CENTER><FORM ACTION=<?php echo "clientesAdmin.php?user=".$user."&pass=".$pass."";?> METHOD="POST" ONSUBMIT="return validaFormularioBuscarCliente();">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
 						<DIV CLASS="col-lg-4">
@@ -175,7 +176,8 @@
 						<TD><BUTTON>Modificar</BUTTON></TD>
 						<TD><BUTTON>Eliminar</BUTTON></TD>
 					</TR>
-					<?php } ?>
+
+					<?php } $mysqli->close(); ?>
 				</TABLE>
 				</DIV>
 			</CENTER>
