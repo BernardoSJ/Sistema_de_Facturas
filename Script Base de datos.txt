@@ -1,0 +1,81 @@
+DROP DATABASE IF EXISTS `facturasmiscelanea` ;
+
+CREATE DATABASE IF NOT EXISTS `facturasmiscelanea` DEFAULT CHARACTER SET utf8 ;
+USE `facturasMiscelanea` ;
+
+DROP TABLE IF EXISTS `cliente` ;
+
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `rfc` VARCHAR(15) NOT NULL,
+  `nombre` VARCHAR(40) NOT NULL,
+  `apellidop` VARCHAR(40) NOT NULL,
+  `apellidom` VARCHAR(40) NOT NULL,
+  `calle` VARCHAR(40) NOT NULL,
+  `numero` VARCHAR(5) NOT NULL,
+  `colonia` VARCHAR(40) NOT NULL,
+  `cp` VARCHAR(5) NOT NULL,
+  PRIMARY KEY (`rfc`))
+ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `factura` ;
+
+CREATE TABLE IF NOT EXISTS `factura` (
+  `numfactura` INT NOT NULL AUTO_INCREMENT,
+  `rfc` VARCHAR(15) NOT NULL,
+  `fecha` DATE NOT NULL,
+  PRIMARY KEY (`numFactura`),
+    FOREIGN KEY (`rfc`)
+    REFERENCES `cliente` (`rfc`)
+    )
+ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `producto` ;
+
+CREATE TABLE IF NOT EXISTS `producto` (
+  `idproducto` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(40) NOT NULL,
+  `precio` FLOAT NOT NULL,
+  `stock` INT NOT NULL,
+  `categoria` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idproducto`))
+ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `detalle` ;
+
+CREATE TABLE IF NOT EXISTS `detalle` (
+  `numdetalle` INT NOT NULL AUTO_INCREMENT,
+  `numfactura` INT NOT NULL,
+  `idproducto` INT NOT NULL,
+  `cantidad` INT NOT NULL,
+  `total` FLOAT NOT NULL,
+  PRIMARY KEY (`numdetalle`),
+  
+    FOREIGN KEY (`numfactura`)
+    REFERENCES `factura` (`numfactura`) ON DELETE CASCADE,
+
+    FOREIGN KEY (`idproducto`)
+    REFERENCES `producto` (`idproducto`)
+    )
+ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `usuarios` ;
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `rfc` VARCHAR(15) NOT NULL,
+  `tipousuario` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`rfc`))
+ENGINE = InnoDB;
+
+INSERT INTO `cliente` (`rfc`, `nombre`, `apellidop`, `apellidom`, `calle`, `numero`, `colonia`, `cp`) VALUES ('JAAA620914DY3', 'ANGELICA', 'JAQUEZ', 'ARELLANO', 'CHAPULTEPEC', '203', 'FRACC BENITO JUAREZ', '34167'), ('SAVB600416GY3', 'JOSE BERNARDO', 'SALINAS', 'VAZQUEZ', 'CALLE 4', '706', 'FRACC LOS FUENTES', '34080');
+
+INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY3', '2020-04-25'), (NULL, 'SAVB600416GY3', '2020-04-05');
+
+INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY3', '2020-04-08'), (NULL, 'JAAA620914DY3', '2020-04-20');
+
+INSERT INTO `producto` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'CHOCOLATE CARLOS V', '8.00', '5', 'DULCERIA'), (NULL, 'PARACETAMOL', '11.00', '10', 'FARMACIA');
+
+INSERT INTO `producto` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'LATA DE FRIJOLES LA SIERRA', '19.00', '7', 'ABARROTES'), (NULL, 'COCA COLA 600 ML', '14.00', '24', 'DULCERIA');
+
+INSERT INTO `detalle` (`numdetalle`, `numfactura`, `idproducto`, `cantidad`, `total`) VALUES (NULL, '1', '1', '2', '16.00'), (NULL, '1', '4', '1', '14.00');
+
+INSERT INTO `detalle` (`numdetalle`, `numfactura`, `idproducto`, `cantidad`, `total`) VALUES (NULL, '3', '2', '2', '22.00'), (NULL, '2', '3', '1', '19.00');
