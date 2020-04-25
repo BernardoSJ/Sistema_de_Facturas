@@ -139,9 +139,9 @@
 
 			<DIV CLASS="navbar navbar-expand-sm justify-content-center">
 				<UL ID="menu" CLASS="navbar-nav">
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="clientesAdmin.html">Clientes</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="productosAdmin.html">Productos</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="facturasAdmin.html">Realizar Facturas</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="clientesAdmin.php">Clientes</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="productosAdmin.php">Productos</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="facturasAdmin.php">Realizar Facturas</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Cerrar sesi&oacute;n</A></LI>
 				</UL>
 			</DIV>

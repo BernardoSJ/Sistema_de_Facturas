@@ -1,8 +1,6 @@
 <?php
-	$user=$_GET['user'];
-	$pass=$_GET['pass'];
-	$condicion = "";
-	$mysqli=new mysqli("localhost",$user,$pass,"pruebafacturas");
+	require 'php/conexion.php';
+	$condicion="";
 	if(!empty($_POST)){
 		$busca = $_POST['busca'];
 		$criterio = strtolower($_POST['criterio']);
@@ -40,8 +38,8 @@
 			<DIV CLASS="navbar navbar-expand-sm justify-content-center">
 				<UL ID="menu" CLASS="navbar-nav">
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="clientesAdmin.php">Clientes</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="productosAdmin.html">Productos</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="facturasAdmin.html">Realizar Facturas</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="productosAdmin.php">Productos</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="facturasAdmin.php">Realizar Facturas</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Cerrar sesi&oacute;n</A></LI>
 				</UL>
 			</DIV>
@@ -116,7 +114,7 @@
 
 		<HR>
 			<DIV CLASS="container">
-					<CENTER><FORM ACTION=<?php echo "clientesAdmin.php?user=".$user."&pass=".$pass."";?> METHOD="POST" ONSUBMIT="return validaFormularioBuscarCliente();">
+					<CENTER><FORM ACTION="clientesAdmin.php" METHOD="POST" ONSUBMIT="return validaFormularioBuscarCliente();">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
 						<DIV CLASS="col-lg-4">

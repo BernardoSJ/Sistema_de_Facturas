@@ -6,8 +6,10 @@
 		if($mysqli->connect_error){
 				die("Error en la conexion " . $mysqli->connect_error);
 		}
-		$mysqli->close();
-		echo '<script>window.location.replace("../clientesAdmin.php?user='.$user.'&pass='.$pass.'"); </script>';
+		session_start();
+		$_SESSION['user']=$user;
+		$_SESSION['pass']=$pass;
+		echo '<script>location.href="../clientesAdmin.php"; </script>';
 
 	}
 
