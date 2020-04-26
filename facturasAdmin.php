@@ -1,3 +1,17 @@
+<?php
+	require 'php/conexion.php';
+	
+	if(!empty($_POST)){
+		$busca = $_POST['busca'];
+		$criterio = strtolower($_POST['criterio']);
+
+		$condicion = "WHERE $criterio LIKE '%$busca%'";
+	}
+
+	$sql = "SELECT idproducto,nombre,FORMAT(precio,2),stock,categoria FROM productos";
+
+	$resultado = $mysqli->query($sql);
+?>
 <!DOCTYPE html>
 <HTML>
 	<HEAD>
@@ -177,30 +191,18 @@
 						<TH>Categor&iacute;a</TH>
 						<TH></TH>
 					</TR>
+					<?php while($row = $resultado->fetch_array()) { ?>
 					<TR>
-						<TD>1</TD>
-						<TD>Chocolate</TD>
-						<TD>10.50</TD>
-						<TD>10</TD>
-						<TD>Dulceria</TD>
+						<TD><?php echo $row['idproducto']; ?></TD>
+						<TD><?php echo $row['nombre']; ?></TD>
+						<TD><?php echo $row['FORMAT(precio,2)']; ?></TD>
+						<TD><?php echo $row['stock']; ?></TD>
+						<TD><?php echo $row['categoria']; ?></TD>
 						<TD><BUTTON CLASS="agregar">Agregar</BUTTON></TD>
+						
 					</TR>
-					<TR>
-						<TD>2</TD>
-						<TD>Lata de frijoles</TD>
-						<TD>20.00</TD>
-						<TD>10</TD>
-						<TD>Abarrotes</TD>
-						<TD><BUTTON CLASS="agregar">Agregar</BUTTON></TD>
-					</TR>
-					<TR>
-						<TD>3</TD>
-						<TD>Paracetamol</TD>
-						<TD>11.52</TD>
-						<TD>20</TD>
-						<TD>Farmacia</TD>
-						<TD><BUTTON CLASS="agregar">Agregar</BUTTON></TD>
-					</TR>
+
+					<?php } $mysqli->close(); ?>
 				</TABLE>
 				</DIV>
 			

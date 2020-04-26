@@ -8,7 +8,7 @@
 		$condicion = "WHERE $criterio LIKE '%$busca%'";
 	}
 
-	$sql = "SELECT * FROM pruebaclientes $condicion";
+	$sql = "SELECT * FROM clientes $condicion";
 
 	$resultado = $mysqli->query($sql);
 ?>

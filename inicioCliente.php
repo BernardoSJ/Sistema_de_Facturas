@@ -1,3 +1,17 @@
+<?php
+	
+	require 'php/conexion.php';
+
+	$condicion="";
+	if(!empty($_POST)){
+		$busca = $_POST['busca'];
+		$condicion = "AND fecha=$busca";
+	}
+
+	$sql = "SELECT numfactura,DATE_FORMAT(fecha, '%d-%m-%Y') FROM factura WHERE rfc='".$_SESSION['user']."' $condicion";
+
+	$resultado = $mysqli->query($sql);
+?>
 <!DOCTYPE html>
 <HTML>
 	<HEAD>
@@ -31,7 +45,7 @@
 		<DIV CLASS="container">
 			<CENTER>
 			<H3>Busca factura(s):</H3>
-			<FORM ACTION="buscaFactura.php" METHOD="" ENCTYPE="" ONSUBMIT="return validaFormulario();">
+			<FORM ACTION="inicioCliente.php" METHOD="POST" ONSUBMIT="return validaFormulario();">
 					<LABEL FOR="busca">Fecha: </LABEL>
 					<DIV CLASS="col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" REQUIRED>
@@ -53,9 +67,17 @@
 					<TH>Ver Factura</TH>
 				</TR>
 				<TR>
-					<TD>1</TD>
-					<TD>01-03-2020</TD>
-					<TD><BUTTON>Ver Factura</BUTTON></TD>
+					<?php while($row = $resultado->fetch_array()) { ?>
+					<TR>
+						<TD><?php echo $row['numfactura']; ?></TD>
+						<TD><?php echo $row["DATE_FORMAT(fecha, '%d-%m-%Y')"]; ?></TD>
+						
+						
+						<TD><BUTTON>Ver factura</BUTTON></TD>
+						
+					</TR>
+
+					<?php } $mysqli->close(); ?>
 					
 				</TR>
 			</TABLE>

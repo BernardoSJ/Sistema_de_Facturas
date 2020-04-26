@@ -1,3 +1,17 @@
+<?php
+	require 'php/conexion.php';
+	$condicion="";
+	if(!empty($_POST)){
+		$busca = $_POST['busca'];
+		$criterio = strtolower($_POST['criterio']);
+
+		$condicion = "WHERE $criterio LIKE '%$busca%'";
+	}
+
+	$sql = "SELECT idproducto,nombre,FORMAT(precio,2),stock,categoria FROM productos $condicion";
+
+	$resultado = $mysqli->query($sql);
+?>
 <!DOCTYPE html>
 <HTML>
 	<HEAD>
@@ -82,7 +96,7 @@
 		<HR>
 
 		<DIV CLASS="container">
-					<CENTER><FORM ACTION="buscaProducto.php" METHOD="" ENCTYPE="" ONSUBMIT="return validaFormularioBuscarProducto()">
+					<CENTER><FORM ACTION="productosAdmin.php" METHOD="POST" ONSUBMIT="return validaFormularioBuscarProducto()">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
 						<DIV CLASS="col-lg-4">
@@ -98,7 +112,7 @@
 								<OPTION>Nombre
 								<OPTION>Precio
 								<OPTION>Stock
-								<OPTION>Categoría
+								<OPTION>Categoria
 							</SELECT>
 						</DIV>
 					</DIV>
@@ -123,33 +137,18 @@
 						<TH>Modificar</TH>
 						<TH>Eliminar</TH>
 					</TR>
+					<?php while($row = $resultado->fetch_array()) { ?>
 					<TR>
-						<TD>1</TD>
-						<TD>Chocolate</TD>
-						<TD>10.00</TD>
-						<TD>10</TD>
-						<TD>Dulceria</TD>
+						<TD><?php echo $row['idproducto']; ?></TD>
+						<TD><?php echo $row['nombre']; ?></TD>
+						<TD><?php echo $row['FORMAT(precio,2)']; ?></TD>
+						<TD><?php echo $row['stock']; ?></TD>
+						<TD><?php echo $row['categoria']; ?></TD>
 						<TD><BUTTON>Modificar</BUTTON></TD>
 						<TD><BUTTON>Eliminar</BUTTON></TD>
 					</TR>
-					<TR>
-						<TD>2</TD>
-						<TD>Lata de frijoles</TD>
-						<TD>20.00</TD>
-						<TD>10</TD>
-						<TD>Abarrotes</TD>
-						<TD><BUTTON>Modificar</BUTTON></TD>
-						<TD><BUTTON>Eliminar</BUTTON></TD>
-					</TR>
-					<TR>
-						<TD>3</TD>
-						<TD>Paracetamol</TD>
-						<TD>11.00</TD>
-						<TD>20</TD>
-						<TD>Farmacia</TD>
-						<TD><BUTTON>Modificar</BUTTON></TD>
-						<TD><BUTTON>Eliminar</BUTTON></TD>
-					</TR>
+
+					<?php } $mysqli->close(); ?>
 				</TABLE>
 				</DIV>
 			</CENTER>
