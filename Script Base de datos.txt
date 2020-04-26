@@ -5,7 +5,7 @@ USE `facturasMiscelanea` ;
 
 DROP TABLE IF EXISTS `cliente` ;
 
-CREATE TABLE IF NOT EXISTS `cliente` (
+CREATE TABLE IF NOT EXISTS `clientes` (
   `rfc` VARCHAR(15) NOT NULL,
   `nombre` VARCHAR(40) NOT NULL,
   `apellidop` VARCHAR(40) NOT NULL,
@@ -25,13 +25,13 @@ CREATE TABLE IF NOT EXISTS `factura` (
   `fecha` DATE NOT NULL,
   PRIMARY KEY (`numFactura`),
     FOREIGN KEY (`rfc`)
-    REFERENCES `cliente` (`rfc`)
+    REFERENCES `clientes` (`rfc`)
     )
 ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `producto` ;
 
-CREATE TABLE IF NOT EXISTS `producto` (
+CREATE TABLE IF NOT EXISTS `productos` (
   `idproducto` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(40) NOT NULL,
   `precio` FLOAT NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `detalle` (
     REFERENCES `factura` (`numfactura`) ON DELETE CASCADE,
 
     FOREIGN KEY (`idproducto`)
-    REFERENCES `producto` (`idproducto`)
+    REFERENCES `productos` (`idproducto`)
     )
 ENGINE = InnoDB;
 
@@ -66,16 +66,69 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`rfc`))
 ENGINE = InnoDB;
 
-INSERT INTO `cliente` (`rfc`, `nombre`, `apellidop`, `apellidom`, `calle`, `numero`, `colonia`, `cp`) VALUES ('JAAA620914DY3', 'ANGELICA', 'JAQUEZ', 'ARELLANO', 'CHAPULTEPEC', '203', 'FRACC BENITO JUAREZ', '34167'), ('SAVB600416GY3', 'JOSE BERNARDO', 'SALINAS', 'VAZQUEZ', 'CALLE 4', '706', 'FRACC LOS FUENTES', '34080');
+INSERT INTO `clientes` (`rfc`, `nombre`, `apellidop`, `apellidom`, `calle`, `numero`, `colonia`, `cp`) VALUES ('JAAA620914DY3', 'ANGELICA', 'JAQUEZ', 'ARELLANO', 'CHAPULTEPEC', '203', 'FRACC BENITO JUAREZ', '34167'), ('SAVB600416GY3', 'JOSE BERNARDO', 'SALINAS', 'VAZQUEZ', 'CALLE 4', '706', 'FRACC LOS FUENTES', '34080');
+
+INSERT INTO `clientes` (`rfc`, `nombre`, `apellidop`, `apellidom`, `calle`, `numero`, `colonia`, `cp`) VALUES ('SOAO680103JL8', 'OMAR', 'SOSA', 'ALVAREZ', 'CALLE 1', '504', 'FRACC LOS FUENTES', '34080'), ('JAAMC690713YH3', 'MARIA DEL CARMEN', 'JAQUEZ', 'ARELLANO', 'CALLE 3', '505', 'FRACC LOS FUENTES', '34080');
 
 INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY3', '2020-04-25'), (NULL, 'SAVB600416GY3', '2020-04-05');
 
 INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY3', '2020-04-08'), (NULL, 'JAAA620914DY3', '2020-04-20');
 
-INSERT INTO `producto` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'CHOCOLATE CARLOS V', '8.00', '5', 'DULCERIA'), (NULL, 'PARACETAMOL', '11.00', '10', 'FARMACIA');
+INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'CHOCOLATE CARLOS V', '8.00', '5', 'DULCERIA'), (NULL, 'PARACETAMOL', '11.00', '10', 'FARMACIA');
 
-INSERT INTO `producto` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'LATA DE FRIJOLES LA SIERRA', '19.00', '7', 'ABARROTES'), (NULL, 'COCA COLA 600 ML', '14.00', '24', 'DULCERIA');
+INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'LATA DE FRIJOLES LA SIERRA', '19.00', '7', 'ABARROTES'), (NULL, 'COCA COLA 600 ML', '14.00', '24', 'DULCERIA');
+
+INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'SABRITAS AMARILLAS', '13.00', '15', 'DULCERIA'), (NULL, 'GALLETAS EMPERADOR CHOCOLATE', '12.00', '8', 'DULCERIA');
 
 INSERT INTO `detalle` (`numdetalle`, `numfactura`, `idproducto`, `cantidad`, `total`) VALUES (NULL, '1', '1', '2', '16.00'), (NULL, '1', '4', '1', '14.00');
 
 INSERT INTO `detalle` (`numdetalle`, `numfactura`, `idproducto`, `cantidad`, `total`) VALUES (NULL, '3', '2', '2', '22.00'), (NULL, '2', '3', '1', '19.00');
+
+INSERT INTO `usuarios` (`rfc`, `tipousuario`) VALUES ('SAJB981003DY6', 'ADMINISTRADOR'), ('JAAA620914DY3', 'CLIENTE');
+
+INSERT INTO `usuarios` (`rfc`, `tipousuario`) VALUES ('SAVB600416GY3', 'CLIENTE'), ('SOAO680103JL8', 'CLIENTE');
+
+INSERT INTO `usuarios` (`rfc`, `tipousuario`) VALUES ('JAAMC690713YH3', 'CLIENTE');
+
+DROP PROCEDURE IF EXISTS crearusuario;
+
+delimiter //
+CREATE PROCEDURE crearusuario(in usuario char(15), in pass varchar(30)) 
+     BEGIN
+        SET @x = CONCAT('CREATE USER ''', usuario,'''@''localhost''','IDENTIFIED BY ''',pass,''''); 
+        PREPARE stmt1 FROM @x; 
+    EXECUTE stmt1; 
+        SET @x1 = CONCAT('GRANT SELECT ON facturasmiscelanea.* TO ''',usuario,'''@''localhost'''); 
+        PREPARE stmt2 FROM @x1; 
+    EXECUTE stmt2; 
+      
+     END
+//
+delimiter ;
+DROP PROCEDURE IF EXISTS eliminarusuario;
+delimiter //
+CREATE PROCEDURE eliminarusuario(in usuario char(15)) 
+     BEGIN
+        SET @x1 = CONCAT('DROP USER ''',usuario,'''@''localhost'''); 
+        PREPARE stmt2 FROM @x1; 
+    EXECUTE stmt2; 
+      
+     END
+//
+
+
+
+CREATE USER 'SAJB981003DY6'@'localhost' IDENTIFIED BY 'administrador';
+GRANT ALL PRIVILEGES ON facturasmiscelanea.* TO 'SAJB981003DY6'@'localhost';
+
+CREATE USER 'JAAA620914DY3'@'localhost' IDENTIFIED BY 'cliente1';
+GRANT SELECT ON facturasmiscelanea.* TO 'JAAA620914DY3'@'localhost';
+
+CREATE USER 'SAVB600416GY3'@'localhost' IDENTIFIED BY 'cliente2';
+GRANT SELECT ON facturasmiscelanea.* TO 'SAVB600416GY3'@'localhost';
+
+CREATE USER 'SOAO680103JL8'@'localhost' IDENTIFIED BY 'cliente3';
+GRANT SELECT ON facturasmiscelanea.* TO 'SOAO680103JL8'@'localhost';
+
+CREATE USER 'JAAMC690713YH3'@'localhost' IDENTIFIED BY 'cliente4';
+GRANT SELECT ON facturasmiscelanea.* TO 'JAAMC690713YH3'@'localhost';
