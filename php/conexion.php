@@ -1,8 +1,12 @@
 <?php
-	session_start();
-	$mysqli=new mysqli("localhost",$_SESSION['user'],$_SESSION['pass'],"facturasmiscelanea");
-	if($mysqli->connect_error){
-		die("Error en la conexion " . $mysqli->connect_error);
-	}
+	@session_start();
+
+	$servidor="localhost";
+	$usuario=$_SESSION['user'];
+	$password=$_SESSION['pass'];
+	$BD="facturasmiscelanea";
+
+	$conexion=@mysqli_connect($servidor,$usuario,$password,$BD);
+	
 
 ?>

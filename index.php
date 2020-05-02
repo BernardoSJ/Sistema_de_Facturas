@@ -1,3 +1,14 @@
+<?php
+	@session_start();
+	if(isset($_SESSION['user'])){
+		if($_SESSION['tipou']=="ADMINISTRADOR"){
+			echo '<script>location.href="indexAdmin.php"; </script>';
+		}
+		if($_SESSION['tipou']=="CLIENTE"){
+			echo '<script>location.href="indexCliente.php"; </script>';
+		}
+	}
+?>
 <!DOCTYPE html>
 <HTML>
 	<HEAD>

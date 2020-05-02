@@ -1,16 +1,24 @@
 <?php
-	
+	@session_start();
+	if(!isset($_SESSION['user'])){
+		echo '<script>location.href="index.php"; </script>';
+	}else if($_SESSION['tipou']=="ADMINISTRADOR"){
+		echo '<script>location.href="indexAdmin.php"; </script>';
+	}
 	require 'php/conexion.php';
 
 	$condicion="";
 	if(!empty($_POST)){
 		$busca = $_POST['busca'];
-		$condicion = "AND fecha=$busca";
+		$fecha=explode("-",$busca);
+		$fecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+		
+		$condicion = "AND fecha='$fecha'";
 	}
 
 	$sql = "SELECT numfactura,DATE_FORMAT(fecha, '%d-%m-%Y') FROM factura WHERE rfc='".$_SESSION['user']."' $condicion";
 
-	$resultado = $mysqli->query($sql);
+	$resultado = $conexion->query($sql);
 ?>
 <!DOCTYPE html>
 <HTML>
@@ -36,7 +44,7 @@
 		<CENTER>
 			<DIV CLASS="navbar navbar-expand-sm justify-content-center">
 				<UL ID="menu" CLASS="navbar-nav">
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Cerrar sesi&oacute;n</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="php/cerrarsesion.php">Cerrar sesi&oacute;n</A></LI>
 				</UL>
 			</DIV>
 		</CENTER>
@@ -71,13 +79,11 @@
 					<TR>
 						<TD><?php echo $row['numfactura']; ?></TD>
 						<TD><?php echo $row["DATE_FORMAT(fecha, '%d-%m-%Y')"]; ?></TD>
-						
-						
 						<TD><BUTTON>Ver factura</BUTTON></TD>
 						
 					</TR>
 
-					<?php } $mysqli->close(); ?>
+					<?php } $conexion->close(); ?>
 					
 				</TR>
 			</TABLE>

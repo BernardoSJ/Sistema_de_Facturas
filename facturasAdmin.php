@@ -1,4 +1,10 @@
 <?php
+	@session_start();
+	if(!isset($_SESSION['user'])){
+		echo '<script>location.href="index.php"; </script>';
+	}else if($_SESSION['tipou']=="CLIENTE"){
+		echo '<script>location.href="indexCliente.php"; </script>';
+	}
 	require 'php/conexion.php';
 	
 	if(!empty($_POST)){
@@ -10,7 +16,7 @@
 
 	$sql = "SELECT idproducto,nombre,FORMAT(precio,2),stock,categoria FROM productos";
 
-	$resultado = $mysqli->query($sql);
+	$resultado = $conexion->query($sql);
 ?>
 <!DOCTYPE html>
 <HTML>
@@ -156,7 +162,7 @@
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="clientesAdmin.php">Clientes</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="productosAdmin.php">Productos</A></LI>
 					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="facturasAdmin.php">Realizar Facturas</A></LI>
-					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="#">Cerrar sesi&oacute;n</A></LI>
+					<LI CLASS="nav-item"><A CLASS="nav-link" HREF="php/cerrarsesion.php">Cerrar sesi&oacute;n</A></LI>
 				</UL>
 			</DIV>
 			
@@ -202,7 +208,7 @@
 						
 					</TR>
 
-					<?php } $mysqli->close(); ?>
+					<?php } $conexion->close(); ?>
 				</TABLE>
 				</DIV>
 			

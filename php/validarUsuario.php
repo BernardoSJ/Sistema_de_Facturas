@@ -1,33 +1,37 @@
 <?php
 	if(!empty($_POST)){
+		session_start();
 		$user=$_POST['user'];
 		$pass=$_POST['pass'];
-		$mysqli=new mysqli("localhost",$user,$pass,"facturasmiscelanea");
-		if($mysqli->connect_error){
-			$solucion='<script>';
-			$solucion.='alert("Usuario y/contrasela incorrectos");';
-			$solucion.='location.href="../index.php";';
-			$solucion.='</script>';
-			die($solucion);
-		}
-		session_start();
+		
 		$_SESSION['user']=$user;
 		$_SESSION['pass']=$pass;
 
+		require('conexion.php');
 
-		$consulta="SELECT tipousuario FROM usuarios WHERE rfc='".$user."'";
+		if(!$conexion){
+			$funcion='<script>';
+			$funcion.='alert("Usuario y/o contraseña incorrectos");';
+			$funcion.='location.href="../index.php";';
+			$funcion.='</script>';
+			session_destroy();
+			die($funcion);
+		}else{
+			$consulta="SELECT tipousuario FROM usuarios WHERE rfc='".$user."'";
 
-		$resultado = $mysqli->query($consulta);
-		while($row = $resultado->fetch_array()) {
-			$_SESSION['tipou']=$row[0];
+			$resultado = $conexion->query($consulta);
+			while($row = $resultado->fetch_array()) {
+				$_SESSION['tipou']=$row[0];
+			}
+			$conexion->close();
+			if($_SESSION['tipou']=="ADMINISTRADOR"){
+				echo '<script>location.href="../indexAdmin.php"; </script>';
+			}
+			if($_SESSION['tipou']=="CLIENTE"){
+				echo '<script>location.href="../indexCliente.php"; </script>';
+			}
 		}
-		$mysqli->close();
-		if($_SESSION['tipou']=="ADMINISTRADOR"){
-			echo '<script>location.href="../clientesAdmin.php"; </script>';
-		}
-		if($_SESSION['tipou']=="CLIENTE"){
-			echo '<script>location.href="../inicioCliente.php"; </script>';
-		}
+		
 		
 
 	}
