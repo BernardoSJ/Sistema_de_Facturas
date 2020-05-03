@@ -14,7 +14,7 @@
 		$condicion = "WHERE $criterio LIKE '%$busca%'";
 	}
 
-	$sql = "SELECT idproducto,nombre,FORMAT(precio,2),stock,categoria FROM productos $condicion";
+	$sql = "SELECT id,nombre,FORMAT(precio,2),stock,categoria FROM productos $condicion";
 
 	$resultado = $conexion->query($sql);
 ?>
@@ -60,7 +60,7 @@
 		<DIV CLASS="container">
 			<CENTER><H2>Productos</H2></CENTER>
 			<CENTER><H3>Dar de alta producto</H3></CENTER>
-			<CENTER><FORM ACTION="php/altaProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
+			<CENTER><FORM ACTION="php/insertarProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="nombre">Nombre: </LABEL>
 					<DIV CLASS="col-lg-4">
@@ -145,7 +145,7 @@
 					</TR>
 					<?php while($row = $resultado->fetch_array()) { ?>
 					<TR>
-						<TD><?php echo $row['idproducto']; ?></TD>
+						<TD><?php echo $row['id']; ?></TD>
 						<TD><?php echo $row['nombre']; ?></TD>
 						<TD><?php echo $row['FORMAT(precio,2)']; ?></TD>
 						<TD><?php echo $row['stock']; ?></TD>

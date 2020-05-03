@@ -29,10 +29,10 @@ CREATE TABLE IF NOT EXISTS `factura` (
     )
 ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `producto` ;
+DROP TABLE IF EXISTS `productos` ;
 
 CREATE TABLE IF NOT EXISTS `productos` (
-  `idproducto` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(40) NOT NULL,
   `precio` FLOAT NOT NULL,
   `stock` INT NOT NULL,

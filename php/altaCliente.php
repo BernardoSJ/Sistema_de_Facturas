@@ -1,12 +1,12 @@
 <?php
 	if(!empty($_POST)){
-		$rfc = $_POST['rfc'];
-		$nombre = $_POST['nombre'];
-		$apellidoP = $_POST['apellidoP'];
-		$apellidoM = $_POST['apellidoM'];
-		$calle = $_POST['calle'];
+		$rfc = strtoupper($_POST['rfc']);
+		$nombre = strtoupper($_POST['nombre']);
+		$apellidoP = strtoupper($_POST['apellidoP']);
+		$apellidoM = strtoupper($_POST['apellidoM']);
+		$calle = strtoupper($_POST['calle']);
 		$numero = $_POST['numero'];
-		$colonia = $_POST['colonia'];
+		$colonia = strtoupper($_POST['colonia']);
 		$cp = $_POST['cp'];
 
 		$captcha = $_POST['g-recaptcha-response'];
@@ -23,9 +23,34 @@
 		
 		$arr = json_decode($response,TRUE);
 		if($arr['success']){
-			echo "El captcha es valido... iniciando proceso de registro de cliente";
+			require 'conexion.php';
+			$query1="INSERT INTO clientes VALUES('".$rfc."','".$nombre."','".$apellidoP."','".$apellidoM."','".$calle."','".$numero."','".$colonia."','".$cp."')";
+			$resultado1=$conexion->query($query1);
+
+			$query2="INSERT INTO usuarios VALUES('".$rfc."','CLIENTE')";
+			$resultado2=$conexion->query($query2);
+
+			$query3="CALL crearusuario('".$rfc."','".substr($rfc, 0, 10)."')";
+			$resultado3=$conexion->query($query3);
+
+			if($resultado1 && $resultado2 && $resultado3){
+				$regreso='<script>';
+				$regreso.='alert("La inserción del cliente fue correcta. Su usuario es '.$rfc.' y su contraseña es '.substr($rfc, 0, 10).'");'; 
+				$regreso.='location.href="../clientesAdmin.php";';
+				$regreso.='</script>';
+			}else{
+				$regreso='<script>';
+				$regreso.='alert("Hubo error en la inserción");'; 
+				$regreso.='window.history.back();';
+				$regreso.='</script>';
+			}
+			$conexion->close();
 		}else{
-			echo "El captcha no es valido";
+			$regreso='<script>';
+			$regreso.='alert("No resolviste el CAPTCHA. Resuelvelo por favor");'; 
+			$regreso.='window.history.back();';
+			$regreso.='</script>';
 		}
+		echo $regreso;
 	}
 ?>

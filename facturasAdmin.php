@@ -14,7 +14,7 @@
 		$condicion = "WHERE $criterio LIKE '%$busca%'";
 	}
 
-	$sql = "SELECT idproducto,nombre,FORMAT(precio,2),stock,categoria FROM productos";
+	$sql = "SELECT id,nombre,FORMAT(precio,2),stock,categoria FROM productos";
 
 	$resultado = $conexion->query($sql);
 ?>
@@ -199,7 +199,7 @@
 					</TR>
 					<?php while($row = $resultado->fetch_array()) { ?>
 					<TR>
-						<TD><?php echo $row['idproducto']; ?></TD>
+						<TD><?php echo $row['id']; ?></TD>
 						<TD><?php echo $row['nombre']; ?></TD>
 						<TD><?php echo $row['FORMAT(precio,2)']; ?></TD>
 						<TD><?php echo $row['stock']; ?></TD>
