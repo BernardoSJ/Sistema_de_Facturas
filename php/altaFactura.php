@@ -19,17 +19,6 @@
 		$arr = json_decode($response,TRUE);
 		if($arr['success']){
 			if(sizeof($data)>0){
-				/*
-				*/
-				
-				/*$consultaProducto="SELECT stock FROM productos WHERE id=$data[0]";
-				$resultado = $conexion->query($consultaProducto);
-				while($row = $resultado->fetch_array()) {
-					$stock=$row[0];
-				}
-				$nuevaCantidad=$stock-$data[2];
-				echo $nuevaCantidad;*/
-
 				require 'conexion.php';
 				$fecha_actual=date('Y')."-".date('m')."-".date('d');
 				$query="INSERT INTO factura VALUES('','".$rfc."','".$fecha_actual."')";
@@ -74,6 +63,7 @@
 					$regreso.='window.history.back();';
 					$regreso.='</script>';
 				}
+				$conexion->close();
 			}else{
 				$regreso='<script>';
 				$regreso.='alert("No seleccionaste ningún producto para la factura. Revisalo");'; 

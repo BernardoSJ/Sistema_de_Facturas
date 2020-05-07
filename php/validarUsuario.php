@@ -15,6 +15,7 @@
 			$funcion.='location.href="../index.php";';
 			$funcion.='</script>';
 			session_destroy();
+			$conexion->close();
 			die($funcion);
 		}else{
 			$consulta="SELECT tipousuario FROM usuarios WHERE rfc='".$user."'";

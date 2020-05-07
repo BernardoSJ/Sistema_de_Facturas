@@ -79,8 +79,7 @@
 					<TR>
 						<TD><?php echo $row['numfactura']; ?></TD>
 						<TD><?php echo $row["DATE_FORMAT(fecha, '%d-%m-%Y')"]; ?></TD>
-						<TD><BUTTON>Ver factura</BUTTON></TD>
-						
+						<TD><A HREF="php/generarFactura.php?id=<?php echo $row['numfactura']; ?>"><BUTTON>Ver factura</BUTTON></A></TD>	
 					</TR>
 
 					<?php } $conexion->close(); ?>

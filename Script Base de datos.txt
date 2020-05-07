@@ -74,11 +74,11 @@ INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY
 
 INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY3', '2020-04-08'), (NULL, 'JAAA620914DY3', '2020-04-20');
 
-INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'CHOCOLATE CARLOS V', '8.00', '5', 'DULCERIA'), (NULL, 'PARACETAMOL', '11.00', '10', 'FARMACIA');
+INSERT INTO `productos` (`id`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'CHOCOLATE CARLOS V', '8.00', '5', 'DULCERIA'), (NULL, 'PARACETAMOL', '11.00', '10', 'FARMACIA');
 
-INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'LATA DE FRIJOLES LA SIERRA', '19.00', '7', 'ABARROTES'), (NULL, 'COCA COLA 600 ML', '14.00', '24', 'DULCERIA');
+INSERT INTO `productos` (`id`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'LATA DE FRIJOLES LA SIERRA', '19.00', '7', 'ABARROTES'), (NULL, 'COCA COLA 600 ML', '14.00', '24', 'DULCERIA');
 
-INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'SABRITAS AMARILLAS', '13.00', '15', 'DULCERIA'), (NULL, 'GALLETAS EMPERADOR CHOCOLATE', '12.00', '8', 'DULCERIA');
+INSERT INTO `productos` (`id`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'SABRITAS AMARILLAS', '13.00', '15', 'DULCERIA'), (NULL, 'GALLETAS EMPERADOR CHOCOLATE', '12.00', '8', 'DULCERIA');
 
 INSERT INTO `detalle` (`numdetalle`, `numfactura`, `idproducto`, `cantidad`, `total`) VALUES (NULL, '1', '1', '2', '16.00'), (NULL, '1', '4', '1', '14.00');
 
