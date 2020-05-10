@@ -19,7 +19,7 @@
 		$arr = json_decode($response,TRUE);
 		if($arr['success']){
 			if(sizeof($data)>0){
-				require 'conexion.php';
+				include("conexion.php");
 				$fecha_actual=date('Y')."-".date('m')."-".date('d');
 				$query="INSERT INTO factura VALUES('','".$rfc."','".$fecha_actual."')";
 				$resultado = $conexion->query($query);

@@ -17,7 +17,7 @@
 
 		$arr = json_decode($response,TRUE);
 		if($arr['success']){
-			require 'conexion.php';
+			include("conexion.php");
 			$query="INSERT INTO productos VALUES('','".$nombre."',".$precio.",".$stock.",'".$categoria."')";
 
 			$resultado=$conexion->query($query);

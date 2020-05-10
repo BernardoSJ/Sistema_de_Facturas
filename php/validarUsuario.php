@@ -7,7 +7,7 @@
 		$_SESSION['user']=$user;
 		$_SESSION['pass']=$pass;
 
-		require('conexion.php');
+		include("conexion.php");
 
 		if(!$conexion){
 			$funcion='<script>';
@@ -15,7 +15,6 @@
 			$funcion.='location.href="../index.php";';
 			$funcion.='</script>';
 			session_destroy();
-			$conexion->close();
 			die($funcion);
 		}else{
 			$consulta="SELECT tipousuario FROM usuarios WHERE rfc='".$user."'";

@@ -5,7 +5,7 @@
 	}else if($_SESSION['tipou']=="CLIENTE"){
 		echo '<script>location.href="indexCliente.php"; </script>';
 	}
-	require 'php/conexion.php';
+	include("php/conexion.php");
 	$condicion="";
 	if(!empty($_POST)){
 		$busca = $_POST['busca'];

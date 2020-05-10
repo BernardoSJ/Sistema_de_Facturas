@@ -23,7 +23,7 @@
 		
 		$arr = json_decode($response,TRUE);
 		if($arr['success']){
-			require 'conexion.php';
+			include("conexion.php");
 			$query1="INSERT INTO clientes VALUES('".$rfc."','".$nombre."','".$apellidoP."','".$apellidoM."','".$calle."','".$numero."','".$colonia."','".$cp."')";
 			$resultado1=$conexion->query($query1);
 
@@ -40,7 +40,7 @@
 				$regreso.='</script>';
 			}else{
 				$regreso='<script>';
-				$regreso.='alert("Hubo error en la inserción");'; 
+				$regreso.='alert("Hubo error en la inserción del cliente posiblemente el RFC que ingresaste ya esta dentro de la base de datos");'; 
 				$regreso.='window.history.back();';
 				$regreso.='</script>';
 			}

@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `detalle` (
     REFERENCES `factura` (`numfactura`) ON DELETE CASCADE,
 
     FOREIGN KEY (`idproducto`)
-    REFERENCES `productos` (`idproducto`)
+    REFERENCES `productos` (`idproducto`) ON DELETE CASCADE
     )
 ENGINE = InnoDB;
 

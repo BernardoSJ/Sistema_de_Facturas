@@ -5,7 +5,7 @@
 	}else if($_SESSION['tipou']=="ADMINISTRADOR"){
 		echo '<script>location.href="indexAdmin.php"; </script>';
 	}
-	require 'php/conexion.php';
+	include("php/conexion.php");
 
 	$condicion="";
 	if(!empty($_POST)){
