@@ -34,10 +34,10 @@
 		<DIV CLASS="container">
 					
 					<CENTER><H3>Inicia sesión</H3></CENTER>
-						<CENTER><FORM ACTION="php/validarUsuario.php" METHOD="POST" ONSUBMIT="return validaFormulario();">
+						<CENTER><FORM  ACTION="php/validarUsuario.php" METHOD="POST" ONSUBMIT="return validaFormulario();">
 							<DIV CLASS="form-group">
 								<LABEL FOR="User">RFC: </LABEL>
-								<DIV CLASS="col-lg-4">
+								<DIV CLASS="col-md-6 col-lg-4">
 									<INPUT CLASS="form-control" TYPE="text" ID="user" NAME="user" SIZE="20" MAXLENGTH="22" REQUIRED>
 								</DIV>
 								
@@ -45,11 +45,11 @@
 							
 							<DIV CLASS="form-group">
 								<LABEL FOR="Pass">Password: </LABEL>
-								<DIV CLASS="col-lg-4">
+								<DIV CLASS="col-md-6 col-lg-4">
 									<INPUT CLASS="form-control" TYPE="password" ID="pass" NAME="pass" SIZE="20" MAXLENGTH="22" REQUIRED>
 								</DIV>
 							</DIV>
-							<DIV CLASS="col-lg-4"> 
+							<DIV CLASS="col-md-6 col-lg-4"> 
 								<INPUT CLASS="form-control" TYPE="submit" VALUE="Entrar">
 							</DIV>
 					</FORM></CENTER>

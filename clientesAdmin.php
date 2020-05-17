@@ -59,60 +59,60 @@
 			<CENTER><FORM ACTION="php/altaCliente.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="rfc">RFC: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="rfc" NAME="rfc" SIZE="30" MAXLENGTH="32" REQUIRED>
 					</DIV>
 				</DIV>
 				<DIV CLASS="form-group">
 					<LABEL FOR="nombre">Nombre: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="apellidoP">Apellido Paterno: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="apellidoP" NAME="apellidoP" SIZE="30" MAXLENGTH="32" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="apellidoM">Apellido Materno: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="apellidoM" NAME="apellidoM" SIZE="30" MAXLENGTH="30" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="calle">Calle: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="calle" NAME="calle" SIZE="30" MAXLENGTH="32" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="numero">N&uacute;mero de Casa: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="numero" NAME="numero" SIZE="4" MAXLENGTH="4" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="colonia">Colonia: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="colonia" NAME="colonia" SIZE="30" MAXLENGTH="32" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="cp">CP: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="cp" NAME="cp" SIZE="30" MAXLENGTH="32" REQUIRED>
 					</DIV>
 				</DIV>
 				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
-				<DIV CLASS="col-lg-4">
+				<DIV CLASS="col-md-6 col-lg-4">
 					<INPUT CLASS="form-control btn-captcha" TYPE="submit" VALUE="Registrar">
 				</DIV>
 				
@@ -124,14 +124,14 @@
 					<CENTER><FORM ACTION="clientesAdmin.php" METHOD="POST" ONSUBMIT="return validaFormularioBuscarCliente();">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
-						<DIV CLASS="col-lg-4">
+						<DIV CLASS="col-md-6 col-lg-4">
 							<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="30" MAXLENGTH="32" REQUIRED>
 						</DIV>
 					</DIV>
 					
 					<DIV CLASS="form-group">
 						<LABEL FOR="criterio">Criterio: </LABEL>
-						<DIV CLASS="col-lg-4">
+						<DIV CLASS="col-md-6 col-lg-4">
 							<SELECT CLASS="form-control" ID="criterio" NAME="criterio">
 								<OPTION>RFC
 								<OPTION>Nombre
@@ -145,7 +145,7 @@
 						</DIV>
 					</DIV>
 
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="submit" VALUE="Buscar">
 					</DIV>
 				</FORM></CENTER>

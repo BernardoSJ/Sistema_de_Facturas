@@ -63,28 +63,28 @@
 			<CENTER><FORM ACTION="php/insertarProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="nombre">Nombre: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" REQUIRED>	
 					</DIV>
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="precio">Precio: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="precio" NAME="precio" SIZE="6" MAXLENGTH="8" REQUIRED>
 					</DIV>
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="stock">Stock: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="number" ID="stock" NAME="stock" SIZE="2" MAXLENGTH="3" REQUIRED>
 					</DIV>		
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="categoria">Categor&iacute;a: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<SELECT CLASS="form-control" ID="categoria" NAME="categoria">
 							<OPTION>Abarrotes
 							<OPTION>Farmacia
@@ -93,7 +93,7 @@
 					</DIV>
 				</DIV>
 				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
-				<DIV CLASS="col-lg-4">
+				<DIV CLASS="col-md-6 col-lg-4">
 					<INPUT CLASS="form-control" TYPE="submit" VALUE="Registrar">
 				</DIV>
 			</FORM></CENTER>
@@ -105,14 +105,14 @@
 					<CENTER><FORM ACTION="productosAdmin.php" METHOD="POST" ONSUBMIT="return validaFormularioBuscarProducto()">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
-						<DIV CLASS="col-lg-4">
+						<DIV CLASS="col-md-6 col-lg-4">
 							<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" REQUIRED>
 						</DIV>
 					</DIV>
 					
 					<DIV CLASS="form-group">
 						<LABEL FOR="criterio">Criterio: </LABEL>
-						<DIV CLASS="col-lg-4">
+						<DIV CLASS="col-md-6 col-lg-4">
 							<SELECT CLASS="form-control" ID="criterio" NAME="criterio">
 								<OPTION>Id
 								<OPTION>Nombre
@@ -123,7 +123,7 @@
 						</DIV>
 					</DIV>
 
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="submit" VALUE="Buscar">
 					</DIV>
 				</FORM></CENTER>

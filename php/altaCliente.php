@@ -18,8 +18,6 @@
 		}
 
 		$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
-
-		//var_dump($response);
 		
 		$arr = json_decode($response,TRUE);
 		if($arr['success']){

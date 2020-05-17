@@ -55,10 +55,10 @@
 			<H3>Busca factura(s):</H3>
 			<FORM ACTION="inicioCliente.php" METHOD="POST" ONSUBMIT="return validaFormulario();">
 					<LABEL FOR="busca">Fecha: </LABEL>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" REQUIRED>
 					</DIV>
-					<DIV CLASS="col-lg-4">
+					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="submit" VALUE="Buscar">
 					</DIV>
 				</FORM>
