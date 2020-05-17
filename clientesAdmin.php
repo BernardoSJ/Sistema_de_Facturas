@@ -9,7 +9,7 @@
 	include("php/conexion.php");
 	$condicion="";
 	if(!empty($_POST)){
-		$busca = $_POST['busca'];
+		$busca = strtoupper($_POST['busca']);
 		$criterio = strtolower($_POST['criterio']);
 
 		$condicion = "WHERE $criterio LIKE '%$busca%'";
@@ -32,6 +32,31 @@
 
 		<script type="text/javascript" src="js/validaPaginaAdminCliente.js"></script>
 		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+
+		<script>
+			function BuscarCliente(){
+				var busqueda,criterio;
+				busqueda=document.getElementById("busca").value;
+				criterio=document.getElementById("criterio").value;
+				if(busqueda==""){
+					alert("El campo de Buscar no debe estar vacio");
+				}else{
+					var parametros = {
+                		"busca" : busqueda,
+                		"criterio" : criterio
+        			};
+					$.ajax({
+						url:"clientesAdmin.php",
+						type:"POST",
+						data:parametros,
+						success: function(response){
+							$("BODY").html(response);
+						}
+					});
+				}
+			}
+		</script>
 	</HEAD>
 
 	<BODY>
@@ -121,7 +146,7 @@
 
 		<HR>
 			<DIV CLASS="container">
-					<CENTER><FORM ACTION="clientesAdmin.php" METHOD="POST" ONSUBMIT="return validaFormularioBuscarCliente();">
+					<CENTER><FORM ACTION="clientesAdmin.php" METHOD="POST" ONSUBMIT="BuscarCliente();return false;">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
 						<DIV CLASS="col-md-6 col-lg-4">

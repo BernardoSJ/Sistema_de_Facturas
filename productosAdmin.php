@@ -8,9 +8,10 @@
 	include("php/conexion.php");
 	$condicion="";
 	if(!empty($_POST)){
-		$busca = $_POST['busca'];
+		
+		$busca = strtoupper($_POST['busca']);
 		$criterio = strtolower($_POST['criterio']);
-
+		
 		$condicion = "WHERE $criterio LIKE '%$busca%'";
 	}
 
@@ -34,7 +35,34 @@
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
  
-    
+    	<script>
+    		function BuscarProducto(){
+				var busqueda,criterio;
+				busqueda=document.getElementById("busca").value.toLowerCase();
+				criterio=document.getElementById("criterio").value.toLowerCase();
+				if(busqueda==""){
+					alert("El campo de Buscar no debe estar vacio");
+				}else{
+					var parametros = {
+                		"busca" : busqueda,
+                		"criterio" : criterio
+        			};
+					$.ajax({
+						url:"productosAdmin.php",
+						type:"POST",
+						data:parametros,
+						success: function(response){
+							$("BODY").html(response);
+						}
+					});
+					
+				}
+			}
+
+			function saluda(){
+				alert("Hila");
+			}
+    	</script>
 
 	</HEAD>
 
@@ -102,7 +130,7 @@
 		<HR>
 
 		<DIV CLASS="container">
-					<CENTER><FORM ACTION="productosAdmin.php" METHOD="POST" ONSUBMIT="return validaFormularioBuscarProducto()">
+					<CENTER><FORM ONSUBMIT="BuscarProducto();return false;">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
 						<DIV CLASS="col-md-6 col-lg-4">

@@ -31,7 +31,37 @@
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloMenu.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
 
-		<script type="text/javascript" src="js/validaInicioCliente.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+
+		<script>
+			function BuscarFecha(){
+				var busqueda,expresionBusca;
+				busqueda=document.getElementById("busca").value;
+				expresionBusca=/^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/;
+
+				if(busqueda==""){
+					alert("Debes de llenar el campo de fecha");
+				
+				}else if(!expresionBusca.test(busqueda)){
+					alert("La fecha que escribiste no es valida");
+				
+				}else{
+					 var parametros = {
+                		"busca" : busqueda
+        			};
+					$.ajax({
+						url:"indexCliente.php",
+						type:"POST",
+						data:parametros,
+						success: function(response){
+							$("BODY").html(response);
+						}
+					});
+				}
+			}
+			
+
+		</script>
 	</HEAD>
 
 	<BODY>
@@ -53,7 +83,7 @@
 		<DIV CLASS="container">
 			<CENTER>
 			<H3>Busca factura(s):</H3>
-			<FORM ACTION="inicioCliente.php" METHOD="POST" ONSUBMIT="return validaFormulario();">
+			<FORM ONSUBMIT="BuscarFecha();return false;">
 					<LABEL FOR="busca">Fecha: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" REQUIRED>

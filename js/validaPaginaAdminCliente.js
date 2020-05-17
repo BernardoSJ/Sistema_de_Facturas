@@ -52,14 +52,3 @@ function validaFormularioInsertar(){
 	return true;
 }
 
-/*function validaFormularioBuscarCliente(){
-	var busqueda,criterio;
-	busqueda=document.getElementById("busca").value;
-	criterio=document.getElementById("criterio").value;
-	if(busqueda==""){
-		alert("El campo de Buscar no debe estar vacio");
-		return false;
-	}
-	
-	return true;
-}*/
