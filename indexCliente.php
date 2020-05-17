@@ -105,14 +105,20 @@
 					<TH>Ver Factura</TH>
 				</TR>
 				<TR>
-					<?php while($row = $resultado->fetch_array()) { ?>
-					<TR>
-						<TD><?php echo $row['numfactura']; ?></TD>
-						<TD><?php echo $row["DATE_FORMAT(fecha, '%d-%m-%Y')"]; ?></TD>
-						<TD><A HREF="php/generarFactura.php?id=<?php echo $row['numfactura']; ?>"><BUTTON>Ver factura</BUTTON></A></TD>	
-					</TR>
+					<?php if($resultado->num_rows>0){?>
+						<?php while($row = $resultado->fetch_array()) { ?>
+						<TR>
+							<TD><?php echo $row['numfactura']; ?></TD>
+							<TD><?php echo $row["DATE_FORMAT(fecha, '%d-%m-%Y')"]; ?></TD>
+							<TD><A HREF="php/generarFactura.php?id=<?php echo $row['numfactura']; ?>"><BUTTON>Ver factura</BUTTON	></A></TD>	
+						</TR>
 
-					<?php } $conexion->close(); ?>
+						<?php } $conexion->close(); ?>
+					<?php }else{
+
+						echo "<CENTER><P CLASS="."h6".">No hay facturas con esa fecha</P></CENTER>";
+						$conexion->close();
+					} ?>
 					
 				</TR>
 			</TABLE>

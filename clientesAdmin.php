@@ -193,21 +193,27 @@
 						<TH></TH>
 					</TR>
 					
-					<?php while($row = $resultado->fetch_array()) { ?>
-					<TR>
-						<TD><?php echo $row['rfc']; ?></TD>
-						<TD><?php echo $row['nombre']; ?></TD>
-						<TD><?php echo $row['apellidop']; ?></TD>
-						<TD><?php echo $row['apellidom']; ?></TD>
-						<TD><?php echo $row['calle']; ?></TD>
-						<TD><?php echo $row['numero']; ?></TD>
-						<TD><?php echo $row['colonia']; ?></TD>
-						<TD><?php echo $row['cp']; ?></TD>
-						<TD><BUTTON>Modificar</BUTTON></TD>
-						<TD><BUTTON>Eliminar</BUTTON></TD>
-					</TR>
+					<?php if($resultado->num_rows>0){?>
+						<?php while($row = $resultado->fetch_array()) { ?>
+						<TR>
+							<TD><?php echo $row['rfc']; ?></TD>
+							<TD><?php echo $row['nombre']; ?></TD>
+							<TD><?php echo $row['apellidop']; ?></TD>
+							<TD><?php echo $row['apellidom']; ?></TD>
+							<TD><?php echo $row['calle']; ?></TD>
+							<TD><?php echo $row['numero']; ?></TD>
+							<TD><?php echo $row['colonia']; ?></TD>
+							<TD><?php echo $row['cp']; ?></TD>
+							<TD><BUTTON>Modificar</BUTTON></TD>
+							<TD><BUTTON>Eliminar</BUTTON></TD>
+						</TR>
 
-					<?php } $conexion->close(); ?>
+						<?php } $conexion->close(); ?>
+					<?php }else{
+
+						echo "<CENTER><P CLASS="."h6".">No hay clientes con esas condiciones de busqueda</P></CENTER>";
+						$conexion->close();
+					} ?>
 				</TABLE>
 				</DIV>
 			</CENTER>

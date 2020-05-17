@@ -171,18 +171,24 @@
 						<TH>Modificar</TH>
 						<TH>Eliminar</TH>
 					</TR>
-					<?php while($row = $resultado->fetch_array()) { ?>
-					<TR>
-						<TD><?php echo $row['id']; ?></TD>
-						<TD><?php echo $row['nombre']; ?></TD>
-						<TD><?php echo $row['FORMAT(precio,2)']; ?></TD>
-						<TD><?php echo $row['stock']; ?></TD>
-						<TD><?php echo $row['categoria']; ?></TD>
-						<TD><BUTTON>Modificar</BUTTON></TD>
-						<TD><BUTTON>Eliminar</BUTTON></TD>
-					</TR>
 
-					<?php } $conexion->close(); ?>
+					<?php if($resultado->num_rows>0){?>
+						<?php while($row = $resultado->fetch_array()) { ?>
+						<TR>
+							<TD><?php echo $row['id']; ?></TD>
+							<TD><?php echo $row['nombre']; ?></TD>
+							<TD><?php echo $row['FORMAT(precio,2)']; ?></TD>
+							<TD><?php echo $row['stock']; ?></TD>
+							<TD><?php echo $row['categoria']; ?></TD>
+							<TD><BUTTON>Modificar</BUTTON></TD>
+							<TD><BUTTON>Eliminar</BUTTON></TD>
+						</TR>
+
+						<?php } $conexion->close(); ?>
+					<?php }else{
+						echo "<CENTER><P CLASS="."h6".">No hay productos con esas condiciones de busqueda</P></CENTER>";
+						$conexion->close();
+					} ?>
 				</TABLE>
 				</DIV>
 			</CENTER>

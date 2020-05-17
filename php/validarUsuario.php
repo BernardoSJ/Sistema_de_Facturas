@@ -20,9 +20,9 @@
 			$consulta="SELECT tipousuario FROM usuarios WHERE rfc='".$user."'";
 
 			$resultado = $conexion->query($consulta);
-			while($row = $resultado->fetch_array()) {
-				$_SESSION['tipou']=$row[0];
-			}
+			$usu=$resultado->fetch_array();
+			$_SESSION['tipou']=$usu['tipousuario'];
+			
 			$conexion->close();
 			if($_SESSION['tipou']=="ADMINISTRADOR"){
 				echo '<script>location.href="../indexAdmin.php"; </script>';
