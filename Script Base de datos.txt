@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `precio` FLOAT NOT NULL,
   `stock` INT NOT NULL,
   `categoria` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`idproducto`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `detalle` ;
@@ -53,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `detalle` (
     FOREIGN KEY (`numfactura`)
     REFERENCES `factura` (`numfactura`) ON DELETE CASCADE,
 
-    FOREIGN KEY (`idproducto`)
-    REFERENCES `productos` (`idproducto`) ON DELETE CASCADE
+    FOREIGN KEY (`id`)
+    REFERENCES `productos` (`id`) 
     )
 ENGINE = InnoDB;
 

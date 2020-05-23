@@ -59,8 +59,22 @@
 				}
 			}
 
-			function saluda(){
-				alert("Hila");
+			function eliminaProducto(idProducto){
+				var decision = confirm("¿Seguro que desea eliminar el registro?");
+				if(decision==true){
+					var parametros = {
+                		"id" : idProducto
+        			};
+					$.ajax({
+						url:"php/eliminarProducto.php",
+						type:"POST",
+						data:parametros,
+						success: function(response){
+							alert(response);
+							location.reload();
+						}
+					});
+				}
 			}
     	</script>
 
@@ -168,8 +182,8 @@
 						<TH>Precio</TH>
 						<TH>Stock</TH>
 						<TH>Categor&iacute;a</TH>
-						<TH>Modificar</TH>
-						<TH>Eliminar</TH>
+						<TH></TH>
+						<TH></TH>
 					</TR>
 
 					<?php if($resultado->num_rows>0){?>
@@ -181,7 +195,9 @@
 							<TD><?php echo $row['stock']; ?></TD>
 							<TD><?php echo $row['categoria']; ?></TD>
 							<TD><BUTTON>Modificar</BUTTON></TD>
-							<TD><BUTTON>Eliminar</BUTTON></TD>
+							<TD>
+								<BUTTON id="<?php echo $row['id']; ?>" onclick="eliminaProducto(this.id)">Eliminar</BUTTON>
+							</TD>
 						</TR>
 
 						<?php } $conexion->close(); ?>

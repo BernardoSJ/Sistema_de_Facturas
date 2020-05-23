@@ -30,6 +30,14 @@
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloMenu.css">
 
+		<style type="text/css">
+			#tformulario{
+				width:0%;
+				border:1px;
+				margin:0px;
+			}
+		</style>
+
 		<script type="text/javascript" src="js/validaPaginaAdminCliente.js"></script>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
@@ -52,6 +60,24 @@
 						data:parametros,
 						success: function(response){
 							$("BODY").html(response);
+						}
+					});
+				}
+			}
+
+			function eliminaCliente(rfcEliminar){
+				var decision = confirm("¿Seguro que desea eliminar el registro?");
+				if(decision==true){
+					var parametros = {
+                		"rfc" : rfcEliminar
+        			};
+					$.ajax({
+						url:"php/eliminarCliente.php",
+						type:"POST",
+						data:parametros,
+						success: function(response){
+							alert(response);
+							location.reload();
 						}
 					});
 				}
@@ -205,7 +231,9 @@
 							<TD><?php echo $row['colonia']; ?></TD>
 							<TD><?php echo $row['cp']; ?></TD>
 							<TD><BUTTON>Modificar</BUTTON></TD>
-							<TD><BUTTON>Eliminar</BUTTON></TD>
+							<TD>
+								<BUTTON id="<?php echo $row['rfc']; ?>" onclick="eliminaCliente(this.id)">Eliminar</BUTTON>
+							</TD>
 						</TR>
 
 						<?php } $conexion->close(); ?>
