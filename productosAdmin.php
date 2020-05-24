@@ -26,7 +26,6 @@
 		<TITLE>Admin Productos</TITLE>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloBase.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloMenu.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
@@ -131,6 +130,9 @@
 							<OPTION>Abarrotes
 							<OPTION>Farmacia
 							<OPTION>Dulceria
+							<OPTION>Lacteos
+							<OPTION>Cremeria
+							<OPTION>Papeleria
 						</SELECT>
 					</DIV>
 				</DIV>
