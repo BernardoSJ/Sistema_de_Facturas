@@ -230,7 +230,13 @@
 							<TD><?php echo $row['numero']; ?></TD>
 							<TD><?php echo $row['colonia']; ?></TD>
 							<TD><?php echo $row['cp']; ?></TD>
-							<TD><BUTTON>Modificar</BUTTON></TD>
+							<TD>
+								<FORM ID="tformulario" ACTION="modificarCliente.php" METHOD="POST">
+									<INPUT TYPE="hidden" ID="rfcModificar" NAME="rfcModificar" VALUE="<?php echo $row['rfc']; ?>">
+									<BUTTON>Modificar</BUTTON>
+								</FORM>
+								
+							</TD>
 							<TD>
 								<BUTTON id="<?php echo $row['rfc']; ?>" onclick="eliminaCliente(this.id)">Eliminar</BUTTON>
 							</TD>

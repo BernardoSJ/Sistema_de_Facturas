@@ -1,3 +1,13 @@
+<?php
+	if(!empty($_POST)){
+		include("php/conexion.php");
+		$rfc=$_POST['rfcModificar'];
+
+		$consulta="SELECT * FROM clientes WHERE rfc='$rfc'";
+		$resultado=$conexion->query($consulta);
+		$respuesta=$resultado->fetch_array();
+	}
+?>
 <!DOCTYPE html>
 <HTML>
 	<HEAD>
@@ -25,51 +35,52 @@
 			<CENTER><FORM ACTION="php/altaCliente.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				
 				<DIV CLASS="form-group">
+					<INPUT TYPE="hidden" ID="rfc" NAME="rfc" VALUE="<?php echo $respuesta['rfc']; ?>">
 					<LABEL FOR="nombre">Nombre: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['nombre']; ?>" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="apellidoP">Apellido Paterno: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="apellidoP" NAME="apellidoP" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="apellidoP" NAME="apellidoP" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['apellidop']; ?>" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="apellidoM">Apellido Materno: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="apellidoM" NAME="apellidoM" SIZE="30" MAXLENGTH="30" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="apellidoM" NAME="apellidoM" SIZE="30" MAXLENGTH="30" VALUE="<?php echo $respuesta['apellidom']; ?>" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="calle">Calle: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="calle" NAME="calle" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="calle" NAME="calle" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['calle']; ?>" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="numero">N&uacute;mero de Casa: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="numero" NAME="numero" SIZE="4" MAXLENGTH="4" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="numero" NAME="numero" SIZE="4" MAXLENGTH="4" VALUE="<?php echo $respuesta['numero']; ?>" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="colonia">Colonia: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="colonia" NAME="colonia" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="colonia" NAME="colonia" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['colonia']; ?>" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="cp">CP: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="cp" NAME="cp" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="cp" NAME="cp" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['cp']; ?>" REQUIRED>
 					</DIV>
 				</DIV>
 				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>

@@ -30,6 +30,14 @@
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloMenu.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
 
+		<style type="text/css">
+			#tformulario{
+				width:0%;
+				border:1px;
+				margin:0px;
+			}
+		</style>
+
 		<script type="text/javascript" src="js/validaPaginaAdminProducto.js"></script>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
@@ -196,7 +204,12 @@
 							<TD><?php echo $row['FORMAT(precio,2)']; ?></TD>
 							<TD><?php echo $row['stock']; ?></TD>
 							<TD><?php echo $row['categoria']; ?></TD>
-							<TD><BUTTON>Modificar</BUTTON></TD>
+							<TD>
+								<FORM ID="tformulario" ACTION="modificarProducto.php" METHOD="POST">
+									<INPUT TYPE="hidden" ID="idModificar" NAME="idModificar" VALUE="<?php echo $row['id']; ?>">
+									<BUTTON>Modificar</BUTTON>
+								</FORM>
+							</TD>
 							<TD>
 								<BUTTON id="<?php echo $row['id']; ?>" onclick="eliminaProducto(this.id)">Eliminar</BUTTON>
 							</TD>

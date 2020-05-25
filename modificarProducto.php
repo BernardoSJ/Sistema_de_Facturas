@@ -1,3 +1,13 @@
+<?php
+	if(!empty($_POST)){
+		include("php/conexion.php");
+		$id=$_POST['idModificar'];
+
+		$consulta="SELECT id,nombre,FORMAT(precio,2),stock,categoria FROM productos WHERE id=$id";
+		$resultado=$conexion->query($consulta);
+		$respuesta=$resultado->fetch_array();
+	}
+?>
 <!DOCTYPE html>
 <HTML>
 	<HEAD>
@@ -25,23 +35,25 @@
 			<CENTER><H3>Modificar producto</H3></CENTER>
 			<CENTER><FORM ACTION="php/insertarProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
+
+					<INPUT TYPE="hidden" ID="id" NAME="id" VALUE="<?php echo $respuesta['id']; ?>">
 					<LABEL FOR="nombre">Nombre: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" REQUIRED>	
+						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['nombre']; ?>" REQUIRED>	
 					</DIV>
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="precio">Precio: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="precio" NAME="precio" SIZE="6" MAXLENGTH="8" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="precio" NAME="precio" SIZE="6" MAXLENGTH="8" VALUE="<?php echo $respuesta['FORMAT(precio,2)']; ?>" REQUIRED>
 					</DIV>
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="stock">Stock: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="number" ID="stock" NAME="stock" SIZE="2" MAXLENGTH="3" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="number" ID="stock" NAME="stock" SIZE="2" MAXLENGTH="3" VALUE="<?php echo $respuesta['stock']; ?>" REQUIRED>
 					</DIV>		
 				</DIV>
 				
@@ -49,12 +61,12 @@
 					<LABEL FOR="categoria">Categor&iacute;a: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
 						<SELECT CLASS="form-control" ID="categoria" NAME="categoria">
-							<OPTION>Abarrotes
-							<OPTION>Farmacia
-							<OPTION>Dulceria
-							<OPTION>Lacteos
-							<OPTION>Cremeria
-							<OPTION>Papeleria	
+							<OPTION <?php if($respuesta['categoria']=="ABARROTES") echo "selected";?>>Abarrotes
+							<OPTION <?php if($respuesta['categoria']=="FARMACIA") echo "selected";?>>Farmacia
+							<OPTION <?php if($respuesta['categoria']=="DULCERIA") echo "selected";?>>Dulceria
+							<OPTION <?php if($respuesta['categoria']=="LACTEOS") echo "selected";?>>Lacteos
+							<OPTION <?php if($respuesta['categoria']=="CREMERIA") echo "selected";?>>Cremeria
+							<OPTION <?php if($respuesta['categoria']=="PAPELERIA") echo "selected";?>>Papeleria
 						</SELECT>
 					</DIV>
 				</DIV>
