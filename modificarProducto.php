@@ -12,13 +12,34 @@
 <HTML>
 	<HEAD>
 		<meta charset="utf-8">
-		<TITLE>Admin Productos</TITLE>
+		<TITLE>Modificar Producto</TITLE>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloBase.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+		<script>
+			function validaFormularioInsertar(){
+				var nombre,precio,stock,categoria,expresionPrecio;
+				nombre=document.getElementById("nombre").value.toUpperCase();
+				precio=document.getElementById("precio").value;
+				stock=document.getElementById("stock").value;
+				categoria=document.getElementById("categoria").value;
+				expresionPrecio=/[0-9]+\.+[0-9]{2}?$/;
+
+				if(nombre=="" || precio=="" || stock==""){
+					alert("Todos los campos deben estar llenos");
+					return false;
+				}else if(nombre.length>30){
+					alert("El nombre que ingresaste es muy largo");
+					return false;
+				}else if(!expresionPrecio.test(precio)){
+					alert("El precio que ingresaste no es valido");
+					return false;
+				}
+				return true;
+			}
+		</script>
  
 
 	</HEAD>
@@ -33,7 +54,7 @@
 		<DIV CLASS="container">
 			<CENTER><H2>Productos</H2></CENTER>
 			<CENTER><H3>Modificar producto</H3></CENTER>
-			<CENTER><FORM ACTION="php/insertarProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
+			<CENTER><FORM ACTION="php/actualizaProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
 
 					<INPUT TYPE="hidden" ID="id" NAME="id" VALUE="<?php echo $respuesta['id']; ?>">

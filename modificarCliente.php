@@ -17,6 +17,54 @@
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloBase.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
+
+		<script>
+			function validaFormularioInsertar(){
+				var nombre,apellidoP,apellidoM,calle,numero,colonia,cp,expresionRfc,expresionNumero,expresionCp;
+				nombre=document.getElementById("nombre").value.toUpperCase();
+				apellidoP=document.getElementById("apellidoP").value.toUpperCase();
+				apellidoM=document.getElementById("apellidoM").value.toUpperCase();
+				calle=document.getElementById("calle").value.toUpperCase();
+				numero=document.getElementById("numero").value;
+				colonia=document.getElementById("colonia").value.toUpperCase();
+				cp=document.getElementById("cp").value;
+				expresionNumero=/^[0-9]{3,4}$/;
+				expresionCp=/^[0-9]{5}$/;
+
+				if(nombre=="" || apellidoP=="" || apellidoM=="" || calle=="" || numero=="" || colonia=="" || cp==""){
+					alert("Debes de llenar todos los campos");
+					return false;
+				}else if(nombre.length>30){
+					alert("El nombre que ingresaste es muy largo");
+					return false;
+				}else if (apellidoP.length>30){ 
+					alert("El apellido Paterno es muy largo");
+					return false;
+				}else if(apellidoM.length>30){
+					alert("El apellido Materno es muy largo");
+					return false;
+				}else if(calle.length>30){
+					alert("El nombre de la calle es muy largo");
+					return false;
+				}else if(numero.length>4){
+					alert("El número de casa que ingresaste es muy largo");
+					return false;
+				}else if(!expresionNumero.test(numero)){
+					alert("No ingresaste un número de casa valido");
+					return false;
+				}else if(colonia.length>30){
+					alert("El nombre de la colonia es muy largo");
+					return false;
+				}else if(cp.length>5){
+					alert("El CP que ingresaste es muy largo");
+					return false;
+				}else if(!expresionCp.test(cp)){
+					alert("No ingresaste un CP Valido");
+					return false;
+				}
+				return true;
+			}
+		</script>
 		
 	</HEAD>
 
@@ -32,7 +80,7 @@
 		<DIV CLASS="container">
 			<CENTER><H2>Clientes</H2></CENTER>
 			<CENTER><H3>Modificar Cliente</H3></CENTER>
-			<CENTER><FORM ACTION="php/altaCliente.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
+			<CENTER><FORM ACTION="php/actualizaCliente.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				
 				<DIV CLASS="form-group">
 					<INPUT TYPE="hidden" ID="rfc" NAME="rfc" VALUE="<?php echo $respuesta['rfc']; ?>">
