@@ -111,55 +111,55 @@
 				<DIV CLASS="form-group">
 					<LABEL FOR="rfc">RFC: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="rfc" NAME="rfc" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="rfc" NAME="rfc" SIZE="30" MAXLENGTH="32" PLACEHOLDER="RFC" REQUIRED>
 					</DIV>
 				</DIV>
 				<DIV CLASS="form-group">
 					<LABEL FOR="nombre">Nombre: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" PLACEHOLDER="Nombre" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="apellidoP">Apellido Paterno: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="apellidoP" NAME="apellidoP" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="apellidoP" NAME="apellidoP" SIZE="30" MAXLENGTH="32" PLACEHOLDER="Apellido Paterno" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="apellidoM">Apellido Materno: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="apellidoM" NAME="apellidoM" SIZE="30" MAXLENGTH="30" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="apellidoM" NAME="apellidoM" SIZE="30" MAXLENGTH="30" PLACEHOLDER="Apellido Materno" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="calle">Calle: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="calle" NAME="calle" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="calle" NAME="calle" SIZE="30" MAXLENGTH="32" PLACEHOLDER="Calle" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="numero">N&uacute;mero de Casa: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="numero" NAME="numero" SIZE="4" MAXLENGTH="4" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="numero" NAME="numero" SIZE="4" MAXLENGTH="4" PLACEHOLDER="Número de casa" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="colonia">Colonia: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="colonia" NAME="colonia" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="colonia" NAME="colonia" SIZE="30" MAXLENGTH="32" PLACEHOLDER="Colonia" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="cp">CP: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="cp" NAME="cp" SIZE="30" MAXLENGTH="32" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="cp" NAME="cp" SIZE="30" MAXLENGTH="32" PLACEHOLDER="Código Postal" REQUIRED>
 					</DIV>
 				</DIV>
 				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
@@ -176,7 +176,7 @@
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
 						<DIV CLASS="col-md-6 col-lg-4">
-							<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="30" MAXLENGTH="32" REQUIRED>
+							<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="30" MAXLENGTH="32" PLACEHOLDER="¿Qué deseas buscar?" REQUIRED>
 						</DIV>
 					</DIV>
 					

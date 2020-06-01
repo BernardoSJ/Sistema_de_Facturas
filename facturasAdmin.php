@@ -175,7 +175,7 @@
 				<DIV CLASS="form-group">
 					<LABEL FOR="rfc">RFC: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="rfc" NAME="rfc" SIZE="40" MAXLENGTH="42" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="rfc" NAME="rfc" SIZE="40" MAXLENGTH="42" PLACEHOLDER="RFC" REQUIRED>
 					</DIV>
 				</DIV>
 				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>

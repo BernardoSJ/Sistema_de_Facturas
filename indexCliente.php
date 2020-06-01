@@ -86,7 +86,7 @@
 			<FORM ONSUBMIT="BuscarFecha();return false;">
 					<LABEL FOR="busca">Fecha: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" PLACEHOLDER="DD-MM-YYYY" REQUIRED>
 					</DIV>
 					<DIV CLASS="col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="submit" VALUE="Buscar">

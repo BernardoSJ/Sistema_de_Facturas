@@ -113,21 +113,21 @@
 				<DIV CLASS="form-group">
 					<LABEL FOR="nombre">Nombre: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" REQUIRED>	
+						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" PLACEHOLDER="Nombre" REQUIRED>	
 					</DIV>
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="precio">Precio: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="text" ID="precio" NAME="precio" SIZE="6" MAXLENGTH="8" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="text" ID="precio" NAME="precio" SIZE="6" MAXLENGTH="8" PLACEHOLDER="Precio" REQUIRED>
 					</DIV>
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="stock">Stock: </LABEL>
 					<DIV CLASS="col-md-6 col-lg-4">
-						<INPUT CLASS="form-control" TYPE="number" ID="stock" NAME="stock" SIZE="2" MAXLENGTH="3" REQUIRED>
+						<INPUT CLASS="form-control" TYPE="number" ID="stock" NAME="stock" SIZE="2" MAXLENGTH="3" PLACEHOLDER="Stock" REQUIRED>
 					</DIV>		
 				</DIV>
 				
@@ -158,7 +158,7 @@
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
 						<DIV CLASS="col-md-6 col-lg-4">
-							<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" REQUIRED>
+							<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" PLACEHOLDER="¿Qué deseas buscar?" REQUIRED>
 						</DIV>
 					</DIV>
 					
