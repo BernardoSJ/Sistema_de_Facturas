@@ -11,25 +11,35 @@
 
 		if(!$conexion){
 			$funcion='<script>';
-			$funcion.='alert("Usuario y/o contraseña incorrectos");';
+			$funcion.='alert("No se pudo realizar la conexión con la base de datos");';
 			$funcion.='location.href="../index.php";';
 			$funcion.='</script>';
 			session_destroy();
 			die($funcion);
 		}else{
-			$consulta="SELECT tipousuario FROM usuarios WHERE rfc='".$user."'";
+			$consulta="SELECT tipousuario FROM usuarios WHERE rfc='".$user."' AND pass=MD5('".$pass."')";
 
 			$resultado = $conexion->query($consulta);
-			$usu=$resultado->fetch_array();
-			$_SESSION['tipou']=$usu['tipousuario'];
+			if($resultado->num_rows>0){
+				$usu=$resultado->fetch_array();
+				$_SESSION['tipou']=$usu['tipousuario'];
 			
-			$conexion->close();
-			if($_SESSION['tipou']=="ADMINISTRADOR"){
-				echo '<script>location.href="../indexAdmin.php"; </script>';
+				$conexion->close();
+				if($_SESSION['tipou']=="ADMINISTRADOR"){
+					echo '<script>location.href="../indexAdmin.php"; </script>';
+				}
+				if($_SESSION['tipou']=="CLIENTE"){
+					echo '<script>location.href="../indexCliente.php"; </script>';
+				}
+			}else{
+				$funcion='<script>';
+				$funcion.='alert("Usuario y/o contraseña incorrectos");';
+				$funcion.='location.href="../index.php";';
+				$funcion.='</script>';
+				session_destroy();
+				die($funcion);
 			}
-			if($_SESSION['tipou']=="CLIENTE"){
-				echo '<script>location.href="../indexCliente.php"; </script>';
-			}
+			
 		}
 		
 		

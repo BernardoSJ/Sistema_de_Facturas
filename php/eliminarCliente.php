@@ -12,9 +12,7 @@
 		$eliminar_Usuario="DELETE FROM usuarios WHERE rfc = '".$rfc."'";
 		$conexion->query($eliminar_Usuario);
 
-		$eliminar_Usuario_Servidor="CALL eliminarusuario('".$rfc."')";
-		$conexion->query($eliminar_Usuario_Servidor);
-		
+		$conexion->close();
 		echo "Registro eliminado con exito";
 		
 	

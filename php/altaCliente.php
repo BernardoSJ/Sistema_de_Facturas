@@ -25,13 +25,11 @@
 			$query1="INSERT INTO clientes VALUES('".$rfc."','".$nombre."','".$apellidoP."','".$apellidoM."','".$calle."','".$numero."','".$colonia."','".$cp."')";
 			$resultado1=$conexion->query($query1);
 
-			$query2="INSERT INTO usuarios VALUES('".$rfc."','CLIENTE')";
+			$query2="INSERT INTO usuarios VALUES('".$rfc."',MD5('".substr($rfc, 0, 10)."'),'CLIENTE')";
 			$resultado2=$conexion->query($query2);
 
-			$query3="CALL crearusuario('".$rfc."','".substr($rfc, 0, 10)."')";
-			$resultado3=$conexion->query($query3);
 
-			if($resultado1 && $resultado2 && $resultado3){
+			if($resultado1 && $resultado2){
 				$regreso='<script>';
 				$regreso.='alert("La inserción del cliente fue correcta. Su usuario es '.$rfc.' y su contraseña es '.substr($rfc, 0, 10).'");'; 
 				$regreso.='location.href="../clientesAdmin.php";';

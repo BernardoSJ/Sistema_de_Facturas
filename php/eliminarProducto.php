@@ -8,7 +8,7 @@
 
 		$eliminar_Producto="DELETE FROM productos WHERE id = ".$id."";
 		$conexion->query($eliminar_Producto);
-
+		$conexion->close();
 		echo "Producto eliminado con exito";
 	}
 ?>

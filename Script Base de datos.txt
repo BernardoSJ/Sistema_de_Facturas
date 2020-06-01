@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `detalle` (
     FOREIGN KEY (`numfactura`)
     REFERENCES `factura` (`numfactura`) ON DELETE CASCADE,
 
-    FOREIGN KEY (`id`)
+    FOREIGN KEY (`idproducto`)
     REFERENCES `productos` (`id`) 
     )
 ENGINE = InnoDB;
@@ -62,6 +62,7 @@ DROP TABLE IF EXISTS `usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `rfc` VARCHAR(15) NOT NULL,
+  `pass` VARCHAR(100) NOT NULL,
   `tipousuario` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`rfc`))
 ENGINE = InnoDB;
@@ -72,7 +73,7 @@ INSERT INTO `clientes` (`rfc`, `nombre`, `apellidop`, `apellidom`, `calle`, `num
 
 INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY3', '2020-04-25'), (NULL, 'SAVB600416GY3', '2020-04-05');
 
-INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY3', '2020-04-08'), (NULL, 'JAAA620914DY3', '2020-04-20');
+INSERT INTO `factura` (`numfactura`, `rfc`, `fecha`) VALUES (NULL, 'JAAA620914DY3', '2020-04-08');
 
 INSERT INTO `productos` (`id`, `nombre`, `precio`, `stock`, `categoria`) VALUES (NULL, 'CHOCOLATE CARLOS V', '8.00', '5', 'DULCERIA'), (NULL, 'PARACETAMOL', '11.00', '10', 'FARMACIA');
 
@@ -84,11 +85,11 @@ INSERT INTO `detalle` (`numdetalle`, `numfactura`, `idproducto`, `cantidad`, `to
 
 INSERT INTO `detalle` (`numdetalle`, `numfactura`, `idproducto`, `cantidad`, `total`) VALUES (NULL, '3', '2', '2', '22.00'), (NULL, '2', '3', '1', '19.00');
 
-INSERT INTO `usuarios` (`rfc`, `tipousuario`) VALUES ('SAJB981003DY6', 'ADMINISTRADOR'), ('JAAA620914DY3', 'CLIENTE');
+INSERT INTO `usuarios` (`rfc`, `pass`, `tipousuario`) VALUES ('SAJB981003DY6', MD5('administrador'), 'ADMINISTRADOR'), ('JAAA620914DY3', MD5('CLIENTE1'), 'CLIENTE');
 
-INSERT INTO `usuarios` (`rfc`, `tipousuario`) VALUES ('SAVB600416GY3', 'CLIENTE'), ('SOAO680103JL8', 'CLIENTE');
+INSERT INTO `usuarios` (`rfc`, `pass`, `tipousuario`) VALUES ('SAVB600416GY3', MD5('CLIENTE2'), 'CLIENTE'), ('SOAO680103JL8', MD5('CLIENTE3'), 'CLIENTE');
 
-INSERT INTO `usuarios` (`rfc`, `tipousuario`) VALUES ('JAAMC690713YH3', 'CLIENTE');
+INSERT INTO `usuarios` (`rfc`, `pass`, `tipousuario`) VALUES ('JAAMC690713YH3', MD5('CLIENTE4'), 'CLIENTE');
 
 DROP PROCEDURE IF EXISTS crearusuario;
 
