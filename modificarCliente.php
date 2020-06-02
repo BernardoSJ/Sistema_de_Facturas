@@ -85,54 +85,54 @@
 				<DIV CLASS="form-group">
 					<INPUT TYPE="hidden" ID="rfc" NAME="rfc" VALUE="<?php echo $respuesta['rfc']; ?>">
 					<LABEL FOR="nombre">Nombre: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['nombre']; ?>" PLACEHOLDER="Nombre" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="apellidoP">Apellido Paterno: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="apellidoP" NAME="apellidoP" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['apellidop']; ?>" PLACEHOLDER="Apellido Paterno" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="apellidoM">Apellido Materno: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="apellidoM" NAME="apellidoM" SIZE="30" MAXLENGTH="30" VALUE="<?php echo $respuesta['apellidom']; ?>" PLACEHOLDER="Apellido Materno" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="calle">Calle: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="calle" NAME="calle" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['calle']; ?>" PLACEHOLDER="Calle" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="numero">N&uacute;mero de Casa: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="numero" NAME="numero" SIZE="4" MAXLENGTH="4" VALUE="<?php echo $respuesta['numero']; ?>" PLACEHOLDER="Número de casa" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="colonia">Colonia: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="colonia" NAME="colonia" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['colonia']; ?>" PLACEHOLDER="Colonia" REQUIRED>
 					</DIV>
 				</DIV>
 
 				<DIV CLASS="form-group">
 					<LABEL FOR="cp">CP: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="cp" NAME="cp" SIZE="30" MAXLENGTH="32" VALUE="<?php echo $respuesta['cp']; ?>" PLACEHOLDER="Código Postal" REQUIRED>
 					</DIV>
 				</DIV>
 				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
-				<DIV CLASS="col-md-6 col-lg-4">
+				<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 					<INPUT CLASS="form-control btn-captcha" TYPE="submit" VALUE="Registrar">
 				</DIV>
 				

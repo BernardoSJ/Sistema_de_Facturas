@@ -174,14 +174,14 @@
 			<FORM ACTION="php/altaFactura.php" METHOD="POST" ONSUBMIT="return validaFormulario();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="rfc">RFC: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="rfc" NAME="rfc" SIZE="40" MAXLENGTH="42" PLACEHOLDER="RFC" REQUIRED>
 					</DIV>
 				</DIV>
 				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
 
 				<input type="text" name="caja_valor" id="caja_valor" value=""  style="display:none">
-				<DIV CLASS="col-md-6 col-lg-4">
+				<DIV CLASS="col-sm-9 col-sm-9 col-md-6 col-lg-4">
 					<INPUT CLASS="form-control" TYPE="submit" VALUE="Registrar">	
 				</DIV>
 			</FORM><CENTER>

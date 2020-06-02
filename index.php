@@ -37,7 +37,7 @@
 						<CENTER><FORM  ACTION="php/validarUsuario.php" METHOD="POST" ONSUBMIT="return validaFormulario();">
 							<DIV CLASS="form-group">
 								<LABEL FOR="User">RFC: </LABEL>
-								<DIV CLASS="col-md-6 col-lg-4">
+								<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 									<INPUT CLASS="form-control" TYPE="text" ID="user" NAME="user" SIZE="20" MAXLENGTH="22" PLACEHOLDER="RFC" REQUIRED>
 								</DIV>
 								
@@ -45,11 +45,11 @@
 							
 							<DIV CLASS="form-group">
 								<LABEL FOR="Pass">Password: </LABEL>
-								<DIV CLASS="col-md-6 col-lg-4">
+								<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 									<INPUT CLASS="form-control" TYPE="password" ID="pass" NAME="pass" SIZE="20" MAXLENGTH="22" PLACEHOLDER="Password" REQUIRED>
 								</DIV>
 							</DIV>
-							<DIV CLASS="col-md-6 col-lg-4"> 
+							<DIV CLASS="col-sm-9 col-md-6 col-lg-4"> 
 								<INPUT CLASS="form-control" TYPE="submit" VALUE="Entrar">
 							</DIV>
 					</FORM></CENTER>

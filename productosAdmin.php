@@ -112,28 +112,28 @@
 			<CENTER><FORM ACTION="php/insertarProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="nombre">Nombre: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="nombre" NAME="nombre" SIZE="30" MAXLENGTH="32" PLACEHOLDER="Nombre" REQUIRED>	
 					</DIV>
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="precio">Precio: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="precio" NAME="precio" SIZE="6" MAXLENGTH="8" PLACEHOLDER="Precio" REQUIRED>
 					</DIV>
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="stock">Stock: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="number" ID="stock" NAME="stock" SIZE="2" MAXLENGTH="3" PLACEHOLDER="Stock" REQUIRED>
 					</DIV>		
 				</DIV>
 				
 				<DIV CLASS="form-group">
 					<LABEL FOR="categoria">Categor&iacute;a: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<SELECT CLASS="form-control" ID="categoria" NAME="categoria">
 							<OPTION>Abarrotes
 							<OPTION>Farmacia
@@ -144,8 +144,9 @@
 						</SELECT>
 					</DIV>
 				</DIV>
+
 				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
-				<DIV CLASS="col-md-6 col-lg-4">
+				<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 					<INPUT CLASS="form-control" TYPE="submit" VALUE="Registrar">
 				</DIV>
 			</FORM></CENTER>
@@ -157,14 +158,14 @@
 					<CENTER><FORM ONSUBMIT="BuscarProducto();return false;">
 					<DIV CLASS="form-group">
 						<LABEL FOR="busca">Busca: </LABEL>
-						<DIV CLASS="col-md-6 col-lg-4">
+						<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 							<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" PLACEHOLDER="¿Qué deseas buscar?" REQUIRED>
 						</DIV>
 					</DIV>
 					
 					<DIV CLASS="form-group">
 						<LABEL FOR="criterio">Criterio: </LABEL>
-						<DIV CLASS="col-md-6 col-lg-4">
+						<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 							<SELECT CLASS="form-control" ID="criterio" NAME="criterio">
 								<OPTION>Id
 								<OPTION>Nombre
@@ -175,7 +176,7 @@
 						</DIV>
 					</DIV>
 
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="submit" VALUE="Buscar">
 					</DIV>
 				</FORM></CENTER>

@@ -85,10 +85,10 @@
 			<H3>Busca factura(s):</H3>
 			<FORM ONSUBMIT="BuscarFecha();return false;">
 					<LABEL FOR="busca">Fecha: </LABEL>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="text" ID="busca" NAME="busca" SIZE="40" MAXLENGTH="42" PLACEHOLDER="DD-MM-YYYY" REQUIRED>
 					</DIV>
-					<DIV CLASS="col-md-6 col-lg-4">
+					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
 						<INPUT CLASS="form-control" TYPE="submit" VALUE="Buscar">
 					</DIV>
 				</FORM>
