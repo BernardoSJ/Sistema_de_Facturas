@@ -31,6 +31,14 @@
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloMenu.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
 
+		<style type="text/css">
+			#tformulario{
+				width:90%;
+				border:1px;
+				margin:0px;
+			}
+		</style>
+
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 
 		<script>
@@ -102,7 +110,7 @@
 				<TR>
 					<TH ALIGN="LEFT">Id</TH>
 					<TH>Fecha</TH>
-					<TH>Ver Factura</TH>
+					<TH></TH>
 				</TR>
 				<TR>
 					<?php if($resultado->num_rows>0){?>
@@ -110,7 +118,12 @@
 						<TR>
 							<TD><?php echo $row['numfactura']; ?></TD>
 							<TD><?php echo $row["DATE_FORMAT(fecha, '%d-%m-%Y')"]; ?></TD>
-							<TD><A HREF="php/generarFactura.php?id=<?php echo $row['numfactura']; ?>"><BUTTON>Ver factura</BUTTON	></A></TD>	
+							<TD>
+								<FORM ID="tformulario" ACTION="php/generarFactura.php" METHOD="POST">
+									<INPUT TYPE="hidden" ID="idFactura" NAME="idFactura" VALUE="<?php echo $row['numfactura']; ?>">
+									<BUTTON>Ver Factura</BUTTON>
+								</FORM>	
+							</TD>
 						</TR>
 
 						<?php } $conexion->close(); ?>

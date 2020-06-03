@@ -1,6 +1,9 @@
 <?php
-	include("../fpdf/fpdf.php");
-
+	ob_start();
+    include("../fpdf/fpdf.php");
+    ini_set('display_startup_errors',1);
+    ini_set('display_errors',1);
+    error_reporting(-1);
 	class PDF extends FPDF{
 		function Footer(){
 			$this->SetY(-15);

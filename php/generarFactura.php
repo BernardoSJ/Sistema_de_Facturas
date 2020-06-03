@@ -1,8 +1,13 @@
 <?php
 	@session_start();
-	include("plantillaFactura.php");
+	ob_start();
+    include("plantillaFactura.php");
 	include("conexion.php");
-	$id=$_GET['id'];
+
+    ini_set('display_startup_errors',1);
+    ini_set('display_errors',1);
+    error_reporting(-1);
+	$id=$_POST['idFactura'];
 
 	$consultaCli="SELECT * FROM clientes WHERE rfc='".$_SESSION['user']."'";
 	$resultadoCli = $conexion->query($consultaCli);
@@ -10,7 +15,7 @@
 	$consultaFac="SELECT numfactura,DATE_FORMAT(fecha, '%d-%m-%Y') FROM factura WHERE numfactura=".$id."";
 	$resultadoFac = $conexion->query($consultaFac);
 
-	$consultaDet="SELECT PRODUCTOS.nombre,FORMAT(PRODUCTOS.precio,2),DETALLE.cantidad,FORMAT(DETALLE.total,2) FROM productos INNER JOIN detalle ON PRODUCTOS.id=DETALLE.idproducto AND DETALLE.numfactura=".$id;
+	$consultaDet="SELECT productos.nombre,FORMAT(productos.precio,2),detalle.cantidad,FORMAT(detalle.total,2) FROM productos INNER JOIN detalle ON productos.id=detalle.idproducto AND detalle.numfactura=".$id;
 	$resultadoDet = $conexion->query($consultaDet);
 
 	$pdf=new PDF('L','mm','letter');
@@ -43,9 +48,9 @@
 	while($filaProducto = $resultadoDet->fetch_array()){
 		$pdf->Cell(108,5,utf8_decode($filaProducto['nombre']),0,0,'L',0);
 		$pdf->Cell(50,5,$filaProducto['cantidad'],0,0,'L',0);
-		$pdf->Cell(50,5,"$".$filaProducto['FORMAT(PRODUCTOS.precio,2)'],0,0,'L',0);
-		$pdf->Cell(50,5,"$".$filaProducto['FORMAT(DETALLE.total,2)'],0,1,'L',0);
-		$subtotal=$subtotal+$filaProducto['FORMAT(DETALLE.total,2)'];
+		$pdf->Cell(50,5,"$".$filaProducto['FORMAT(productos.precio,2)'],0,0,'L',0);
+		$pdf->Cell(50,5,"$".$filaProducto['FORMAT(detalle.total,2)'],0,1,'L',0);
+		$subtotal=$subtotal+$filaProducto['FORMAT(detalle.total,2)'];
 	}
 	$iva=$subtotal*0.16;
 	$total=$subtotal+$iva;
@@ -61,7 +66,9 @@
 	$pdf->Cell(158,5,"",0,0,'L',0);
 	$pdf->Cell(50,5,"Total",0,0,'L',0);
 	$pdf->Cell(50,5,"$".number_format((float)$total, 2, '.', ''),0,1,'L',0);
+    
 	$pdf->Output();
+    
 	$conexion->close();
 
 	function devolverMes($valor){

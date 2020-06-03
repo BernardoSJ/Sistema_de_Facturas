@@ -37,11 +37,7 @@
 		</CENTER>
 		<HR>
 		<CENTER><H1>Bienvenido a la administraci&oacute;n del sistema de facturas Online</H1></CENTER>
-		<FOOTER>
-			<DIV CLASS="container">
-				<P CLASS="h6">P&aacute;gina ofrecida para el control de facturas de la Miscelanea </P>
-			</DIV>
-		</FOOTER>
+		<
 		<script type="bootstrap/js/jquery.js"></script>
 		<script type="bootstrap/js/bootstrap.min.js"></script>
 	</BODY>
