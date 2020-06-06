@@ -43,6 +43,14 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 
 		<script>
+
+			$(document).ready(function(){
+ 				$("#formInsercion").submit(function(){
+   					var response = grecaptcha.getResponse();
+      				if(response.length == 0){
+          				alert('Por favor chequear la Captcha');
+    					return false;}});});
+
 			function BuscarCliente(){
 				var busqueda,criterio;
 				busqueda=document.getElementById("busca").value;
@@ -107,7 +115,7 @@
 		<DIV CLASS="container">
 			<CENTER><H2>Clientes</H2></CENTER>
 			<CENTER><H3>Dar de alta Cliente</H3></CENTER>
-			<CENTER><FORM ACTION="php/altaCliente.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
+			<CENTER><FORM ID="formInsercion" ACTION="php/altaCliente.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="rfc">RFC: </LABEL>
 					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
@@ -163,9 +171,9 @@
 					</DIV>
 				</DIV>
 				
-				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm"></div>
+				<div style="margin-bottom:15px;" class="g-recaptcha" data-sitekey="6LdgquQUAAAAABkxvXbNeIB95SF3OCG_FCdBfKzm" data-callback="enableBtn"></div>
 				<DIV CLASS="col-sm-9 col-md-6 col-lg-4">
-					<INPUT CLASS="form-control btn-captcha" TYPE="submit" VALUE="Registrar">
+					<INPUT ID="botonRegistrar" CLASS="form-control btn-captcha" TYPE="submit" VALUE="Registrar">
 				</DIV>
 				
 			</FORM></CENTER>

@@ -33,6 +33,13 @@
 
 		<script>
 
+			$(document).ready(function(){
+ 				$("FORM").submit(function(){
+   					var response = grecaptcha.getResponse();
+      				if(response.length == 0){
+          				alert('Por favor chequear la Captcha');
+    					return false;}});});
+
 			arregloProductos = new Array();
 			
 

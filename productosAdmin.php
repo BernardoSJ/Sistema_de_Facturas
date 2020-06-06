@@ -43,6 +43,14 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
  
     	<script>
+
+    		$(document).ready(function(){
+ 				$("#formInsercion").submit(function(){
+   					var response = grecaptcha.getResponse();
+      				if(response.length == 0){
+          				alert('Por favor chequear la Captcha');
+    					return false;}});});
+
     		function BuscarProducto(){
 				var busqueda,criterio;
 				busqueda=document.getElementById("busca").value.toLowerCase();
@@ -109,7 +117,7 @@
 		<DIV CLASS="container">
 			<CENTER><H2>Productos</H2></CENTER>
 			<CENTER><H3>Dar de alta producto</H3></CENTER>
-			<CENTER><FORM ACTION="php/insertarProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
+			<CENTER><FORM ID="formInsercion" ACTION="php/insertarProducto.php" METHOD="POST" ONSUBMIT="return validaFormularioInsertar();">
 				<DIV CLASS="form-group">
 					<LABEL FOR="nombre">Nombre: </LABEL>
 					<DIV CLASS="col-sm-9 col-md-6 col-lg-4">

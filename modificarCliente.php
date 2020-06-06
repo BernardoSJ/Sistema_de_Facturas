@@ -17,8 +17,17 @@
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estiloBase.css">
 		<LINK REL="STYLESHEET" TYPE="text/css" HREF="css/estilosFormularios.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 
 		<script>
+
+			$(document).ready(function(){
+ 				$("FORM").submit(function(){
+   					var response = grecaptcha.getResponse();
+      				if(response.length == 0){
+          				alert('Por favor chequear la Captcha');
+    					return false;}});});
+			
 			function validaFormularioInsertar(){
 				var nombre,apellidoP,apellidoM,calle,numero,colonia,cp,expresionRfc,expresionNumero,expresionCp;
 				nombre=document.getElementById("nombre").value.toUpperCase();

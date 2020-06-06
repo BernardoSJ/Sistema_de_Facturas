@@ -8,12 +8,14 @@
 	include("php/conexion.php");
 
 	$condicion="";
+	$ingresoFecha=false;
 	if(!empty($_POST)){
 		$busca = $_POST['busca'];
 		$fecha=explode("-",$busca);
 		$fecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
 		
 		$condicion = "AND fecha='$fecha'";
+		$ingresoFecha=true;
 	}
 
 	$sql = "SELECT numfactura,DATE_FORMAT(fecha, '%d-%m-%Y') FROM factura WHERE rfc='".$_SESSION['user']."' $condicion";
@@ -128,8 +130,12 @@
 
 						<?php } $conexion->close(); ?>
 					<?php }else{
-
-						echo "<CENTER><P CLASS="."h6".">No hay facturas con esa fecha</P></CENTER>";
+						if($ingresoFecha){
+							echo "<CENTER><P CLASS="."h6".">No hay facturas con esa fecha</P></CENTER>";
+						}else{
+							echo "<CENTER><P CLASS="."h6".">No tiene facturas registradas</P></CENTER>";
+						}
+						
 						$conexion->close();
 					} ?>
 					
